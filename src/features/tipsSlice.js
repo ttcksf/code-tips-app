@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 //テスト用のデータ
-import { postsData } from "../data/postData";
+import { tipsData } from "../data/tipsData";
 
 const initialState = {
-  value: postsData,
+  value: tipsData,
 };
-const postsSlice = createSlice({
+const tipsSlice = createSlice({
   //スライスの名前
-  name: "posts",
+  name: "tips",
   //ステートの初期設定
   initialState,
   //Reduxの特定のアクションタイプを処理するための関数(switchのcase文と同じ）が入ったオブジェクト
@@ -22,4 +22,4 @@ const postsSlice = createSlice({
 });
 
 //postsSliceのReducerをエクスポート
-export default postsSlice.reducer;
+export default tipsSlice.reducer;
