@@ -1,4 +1,4 @@
-export const postsData = [
+export const tipsData = [
   {
     id: 0,
     title: "title0",

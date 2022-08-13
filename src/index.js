@@ -5,13 +5,13 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import postsReducer from "./features/postsSlice";
+import tipsReducer from "./features/tipsSlice";
 
 const store = configureStore({
   //reducerを作る
   reducer: {
     //postsSliceのReducerをpostsReducerという名前でインポート
-    posts: postsReducer,
+    posts: tipsReducer,
   },
 });
 
