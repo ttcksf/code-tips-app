@@ -3,14 +3,15 @@ import { createSlice } from "@reduxjs/toolkit";
 import { postsData } from "../data/postData";
 
 const initialState = {
-  value: [],
+  value: postsData,
 };
 const postsSlice = createSlice({
   //スライスの名前
   name: "posts",
   //ステートの初期設定
   initialState,
-  //投稿するReducer
+  //Reduxの特定のアクションタイプを処理するための関数(switchのcase文と同じ）が入ったオブジェクト
+  //オブジェクト内のキーは、アクションを生成するために使用されcreateReducerに渡される
   reducers: {
     //アクション名
     addPost: (state, action) => {
