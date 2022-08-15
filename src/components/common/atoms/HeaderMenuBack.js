@@ -4,7 +4,7 @@ import BackImg from "../../../images/back-arrow.png";
 const HeaderMenuBack = () => {
   return (
     <>
-      <div>
+      <div className="back-menu-img">
         <img src={BackImg} alt="back" />
       </div>
     </>
