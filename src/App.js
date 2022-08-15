@@ -1,9 +1,9 @@
 import "./App.css";
 import { useSelector } from "react-redux";
-import Loading from "./components/common/molecules/Loading";
+import ModalMenu from "./components/common/molecules/ModalMenu";
 
 function App() {
-  return <Loading />;
+  return <ModalMenu />;
   //useSelectorはストアの状態全体を引数として取り、値を読み取って結果を返す関数
   //ステートをpostsという名前のスライスのvalueの値に更新する
   // const postList = useSelector((state) => state.posts.value);
