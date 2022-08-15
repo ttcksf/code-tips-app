@@ -15,7 +15,16 @@ body {
   --black: #333;
   --white: #fff;
 }
-
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
 .App {
   text-align: center;
 }
@@ -89,4 +98,21 @@ body {
   display: inline-block;
   width: 24px;
   height: 24px;
+}
+.modal-menu-list ul {
+  margin-top: 16px;
+}
+.modal-menu-list ul li {
+  margin-bottom: 48px;
+}
+.modal-menu-list ul li a img {
+  width: 24px;
+  height: 24px;
+}
+.modal-menu-list ul li a span {
+  font-size: 16px;
+  color: var(--black);
+  margin-left: 8px;
+  vertical-align: top;
+  line-height: 24px;
 }
