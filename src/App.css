@@ -1,3 +1,18 @@
+//common
+* {
+  color: #333;
+}
+body {
+  --mainBlue: #1877f2;
+  --lightBlue: #5890ff;
+  --lightGrany: #4e4b66;
+  --mainGray: #667080;
+  --bgGray: #eef1f4;
+  --red: #ec1515;
+  --black: #333;
+  --white: #fff;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +50,15 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: var(--mainBlue);
 }
