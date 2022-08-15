@@ -1,9 +1,6 @@
 //common
 * {
   color: #333;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 body {
   --mainBlue: #1877f2;
@@ -14,6 +11,12 @@ body {
   --red: #ec1515;
   --black: #333;
   --white: #fff;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 ul {
   margin: 0;
@@ -64,7 +67,7 @@ a {
   }
 }
 .inner {
-  width: 100%;
+  width: calc(100% - 48px);
   max-width: 1440px;
   padding: 20px 24px 0;
 }
@@ -93,6 +96,15 @@ a {
   font-size: 16px;
   color: var(--black);
   margin: 0;
+}
+.back-menu-img {
+  text-align: left;
+}
+.header-menu-title {
+  text-align: center;
+}
+.modal-menu-img {
+  text-align: right;
 }
 .modal-menu-header div img {
   display: inline-block;
