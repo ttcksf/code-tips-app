@@ -1,10 +1,11 @@
 import "./App.css";
+import TipsDetail from "./screens/TipsDetail/TipsDetail";
 import TipsList from "./screens/TipsList/TipsList";
 
 function App() {
   return (
     <>
-      <TipsList />
+      <TipsDetail />
     </>
   );
   //useSelectorはストアの状態全体を引数として取り、値を読み取って結果を返す関数
