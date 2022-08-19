@@ -5,7 +5,8 @@ import TipsList from "./screens/TipsList/TipsList";
 function App() {
   return (
     <>
-      <TipsDetail />
+      {/* <TipsDetail /> */}
+      <TipsList />
     </>
   );
   //useSelectorはストアの状態全体を引数として取り、値を読み取って結果を返す関数

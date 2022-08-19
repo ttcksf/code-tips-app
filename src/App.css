@@ -159,6 +159,9 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  bottom: 0;
+  background: var(--white);
 }
 .common-footer button {
   background: var(--bgGray);
