@@ -1,5 +1,6 @@
 .input-header {
   width: 100%;
+  margin-bottom: 115px;
 }
 .input-header h1 {
   color: var(--mainBlue);
@@ -9,5 +10,60 @@
 .input-header p {
   font-size: 20px;
   margin: 0;
-  color: var(--lightGrany);
+  color: var(--lightGray);
+}
+
+.input-form dl,
+.input-form dt,
+.input-form dd {
+  margin: 0;
+}
+.input-row {
+  margin-top: 13px;
+}
+.input-row dt label {
+  display: inline-block;
+  color: var(--lightGray);
+  font-size: 14px;
+}
+
+.input-row dd input {
+  display: inline-block;
+  width: 100%;
+  margin-top: 6px;
+  height: 45px;
+  border-radius: 6px;
+  border: 1px solid var(--lightGray);
+}
+.input-check {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.check-box {
+  cursor: pointer;
+}
+span.check-text {
+  color: var(--lightGray);
+  align-items: center;
+  display: flex;
+}
+.check-box input {
+  display: none;
+}
+.check-box input + span.check-text::before {
+  background-image: url("../../images/check-before.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  height: 30px;
+  position: relative;
+  width: 30px;
+}
+.check-box input:checked + span.check-text::before {
+  background-image: url("../../images/check-after.png");
+}
+span.forget-password {
+  color: var(--mainBlue);
 }
