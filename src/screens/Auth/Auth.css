@@ -1,0 +1,13 @@
+.input-header {
+  width: 100%;
+}
+.input-header h1 {
+  color: var(--mainBlue);
+  font-size: 48px;
+  margin: 0;
+}
+.input-header p {
+  font-size: 20px;
+  margin: 0;
+  color: var(--lightGrany);
+}
