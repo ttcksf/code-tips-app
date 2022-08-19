@@ -1,28 +1,23 @@
 import React from "react";
+import InputText from "../atoms/InputText";
 
 const InputForm = () => {
   return (
     <div className="input-form">
       <form>
         <dl>
-          <div className="input-row">
-            <dt>
-              <label className="label" for="email">
-                メールアドレス
-              </label>
-            </dt>
-            <dd>
-              <input type="email" id="email" />
-            </dd>
-          </div>
-          <div className="input-row">
-            <dt>
-              <label for="password">パスワード</label>
-            </dt>
-            <dd>
-              <input type="password" id="password" />
-            </dd>
-          </div>
+          <InputText
+            labelText="メールアドレス"
+            labelFor="email"
+            inputType="text"
+            inputId="email"
+          />
+          <InputText
+            labelText="パスワード"
+            labelFor="password"
+            inputType="password"
+            inputId="password"
+          />
         </dl>
         <div className="input-check">
           <label for="check" className="check-box">
