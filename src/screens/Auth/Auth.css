@@ -1,0 +1,102 @@
+.input-header {
+  width: 100%;
+  margin-bottom: 115px;
+}
+.input-header h1 {
+  color: var(--mainBlue);
+  font-size: 48px;
+  margin: 0;
+}
+.input-header p {
+  font-size: 20px;
+  margin: 0;
+  color: var(--lightGray);
+}
+.input-header p.error {
+  color: var(--red);
+}
+
+.input-form dl,
+.input-form dt,
+.input-form dd {
+  margin: 0;
+}
+.input-row {
+  margin-top: 13px;
+}
+.input-row dt label {
+  display: inline-block;
+  color: var(--lightGray);
+  font-size: 14px;
+}
+
+.input-row dd input {
+  display: inline-block;
+  width: 100%;
+  margin-top: 6px;
+  height: 45px;
+  border-radius: 6px;
+  border: 1px solid var(--lightGray);
+}
+.input-check {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.check-box {
+  cursor: pointer;
+}
+span.check-text {
+  color: var(--lightGray);
+  align-items: center;
+  display: flex;
+}
+.check-box input {
+  display: none;
+}
+.check-box input + span.check-text::before {
+  background-image: url("../../images/check-before.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  height: 30px;
+  position: relative;
+  width: 30px;
+}
+.check-box input:checked + span.check-text::before {
+  background-image: url("../../images/check-after.png");
+}
+span.forget-password {
+  color: var(--lightBlue);
+}
+
+.form-btn {
+  margin-top: 16px;
+}
+.form-btn button {
+  width: 100%;
+  height: 50px;
+  border-radius: 6px;
+  background: var(--bgGray);
+  color: var(--mainGray);
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+.form-btn button.active {
+  background: var(--mainBlue);
+  color: var(--white);
+}
+
+.form-switch {
+  margin-top: 16px;
+  text-align: center;
+}
+.form-switch span {
+  color: var(--lightGray);
+}
+.form-switch a {
+  color: var(--mainBlue);
+  font-weight: bold;
+}

@@ -12,7 +12,7 @@
 body {
   --mainBlue: #1877f2;
   --lightBlue: #5890ff;
-  --lightGrany: #4e4b66;
+  --lightGray: #4e4b66;
   --mainGray: #667080;
   --bgGray: #eef1f4;
   --red: #ec1515;
@@ -29,6 +29,7 @@ li {
 a {
   text-decoration: none;
 }
+
 .App {
   text-align: center;
 }
