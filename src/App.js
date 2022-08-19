@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import HeaderMenu from "./components/common/molecules/HeaderMenu";
 import ModalMenu from "./components/common/molecules/ModalMenu";
 import { menuClose, menuToggle } from "./features/uiSlice";
+import TipsList from "./screens/TipsList/TipsList";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,11 +21,7 @@ function App() {
     <>
       <div className="inner" style={style.inner}>
         <div className="container">
-          <HeaderMenu
-            headerTitle="Tips詳細"
-            menuToggleHandler={menuToggleHandler}
-          />
-          <h1>test</h1>
+          <TipsList />
         </div>
       </div>
       <ModalMenu menuOpen={menuOpen} menuCloseHandler={menuCloseHandler} />
