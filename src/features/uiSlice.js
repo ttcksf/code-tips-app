@@ -6,15 +6,15 @@ const uiSlice = createSlice({
     menuOpen: false,
   },
   reducers: {
-    menuToggle: (state) => {
+    menuToggle(state) {
       state.menuOpen = !state.menuOpen;
-      console.log("click");
     },
-    menuClose: (state) => {
+    menuClose(state) {
       state.menuOpen = false;
     },
   },
 });
 
-export const { menuToggle, menuClose } = uiSlice.actions;
+//postsSliceのReducerをエクスポート
 export default uiSlice.reducer;
+export const { menuToggle, menuClose } = uiSlice.actions;
