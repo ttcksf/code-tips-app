@@ -12,6 +12,9 @@
   margin: 0;
   color: var(--lightGray);
 }
+.input-header p.error {
+  color: var(--red);
+}
 
 .input-form dl,
 .input-form dt,
