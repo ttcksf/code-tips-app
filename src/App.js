@@ -19,11 +19,8 @@ function App() {
   };
   return (
     <>
-      <div className="inner" style={style.inner}>
-        <div className="container">
-          <TipsList />
-        </div>
-      </div>
+      <TipsList />
+
       <ModalMenu menuOpen={menuOpen} menuCloseHandler={menuCloseHandler} />
     </>
   );
@@ -42,13 +39,5 @@ function App() {
   //   </div>
   // );
 }
-
-const style = {
-  inner: {
-    boxSizing: "border-box",
-    width: "100%",
-    overflow: "hidden",
-  },
-};
 
 export default App;
