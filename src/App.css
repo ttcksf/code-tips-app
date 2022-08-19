@@ -109,16 +109,21 @@ a {
 .modal-menu-header div {
   width: 33.33%;
 }
-.modal-menu-header div p {
+/* .modal-menu-header div p {
   font-size: 16px;
   color: var(--black);
   margin: 0;
-}
+} */
 .back-menu-img {
   text-align: left;
 }
 .header-menu-title {
   text-align: center;
+}
+.header-menu-title p {
+  color: var(--black);
+  font-size: 20px;
+  font-weight: bold;
 }
 .modal-menu-img {
   text-align: right;
