@@ -65,5 +65,35 @@ span.check-text {
   background-image: url("../../images/check-after.png");
 }
 span.forget-password {
+  color: var(--lightBlue);
+}
+
+.form-btn {
+  margin-top: 16px;
+}
+.form-btn button {
+  width: 100%;
+  height: 50px;
+  border-radius: 6px;
+  background: var(--bgGray);
+  color: var(--mainGray);
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+.form-btn button.active {
+  background: var(--mainBlue);
+  color: var(--white);
+}
+
+.form-switch {
+  margin-top: 16px;
+  text-align: center;
+}
+.form-switch span {
+  color: var(--lightGray);
+}
+.form-switch a {
   color: var(--mainBlue);
+  font-weight: bold;
 }

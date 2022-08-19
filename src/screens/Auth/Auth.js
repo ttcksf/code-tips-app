@@ -13,7 +13,12 @@ const Auth = () => {
         desc="メールアドレスとパスワードを入力してください"
       />
       <InputForm />
-      <InputButton />
+      <InputButton btnText="ログイン" />
+      <div className="form-switch">
+        <span>
+          アカウントをお持ちでないですか?<a href="#"> 新規登録</a>
+        </span>
+      </div>
     </>
   );
 };
