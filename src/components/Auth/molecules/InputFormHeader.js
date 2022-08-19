@@ -5,6 +5,7 @@ const InputFormHeader = ({ title, desc }) => {
     <div className="input-header">
       <h1>{title}</h1>
       <p>{desc}</p>
+      {/* <p className="error">{desc}</p> */}
     </div>
   );
 };
