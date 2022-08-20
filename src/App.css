@@ -1,39 +1,3 @@
-//common
-* {
-  --mainBlue: #1877f2;
-  --lightBlue: #5890ff;
-  --lightGray: #4e4b66;
-  --mainGray: #667080;
-  --bgGray: #eef1f4;
-  --red: #ec1515;
-  --black: #333;
-  --white: #fff;
-  box-sizing: border-box;
-  margin: 0;
-}
-body {
-  --mainBlue: #1877f2;
-  --lightBlue: #5890ff;
-  --lightGray: #4e4b66;
-  --mainGray: #667080;
-  --bgGray: #eef1f4;
-  --red: #ec1515;
-  --black: #333;
-  --white: #fff;
-  box-sizing: border-box;
-  margin: 0;
-}
-ul {
-  margin: 0;
-  padding: 0;
-}
-li {
-  list-style: none;
-}
-a {
-  text-decoration: none;
-}
-
 .App {
   text-align: center;
 }
