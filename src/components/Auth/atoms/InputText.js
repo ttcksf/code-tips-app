@@ -4,7 +4,7 @@ const InputText = ({ labelText, labelFor, inputType, inputId }) => {
   return (
     <div className="input-row">
       <dt>
-        <label className="label" for={labelFor}>
+        <label className="label" htmlFor={labelFor}>
           {labelText}
         </label>
       </dt>
