@@ -7,8 +7,8 @@ function App() {
   return (
     <>
       {/* <TipsDetail /> */}
-      {/* <TipsList /> */}
-      <Auth />
+      <TipsList />
+      {/* <Auth /> */}
     </>
   );
   //useSelectorはストアの状態全体を引数として取り、値を読み取って結果を返す関数
