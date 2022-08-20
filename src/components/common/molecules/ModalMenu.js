@@ -1,22 +1,22 @@
 import React from "react";
-import HeaderMenuBack from "../atoms/HeaderMenuBack";
 import TipsListImg from "../../../images/home.png";
 import NewPostImg from "../../../images/pencil.png";
 import LogOutImg from "../../../images/door.png";
 import SignOutImg from "../../../images/human.png";
+import CloseImg from "../../../images/close.png";
 
 const ModalMenu = ({ menuToggle, menuCloseHandler }) => {
   return (
     <>
       <div className="modal-area" style={menuToggle ? { left: 0 } : {}}>
         <header className="modal-menu-header">
-          <div onClick={menuCloseHandler}>
-            <HeaderMenuBack />
-          </div>
+          <div></div>
           <div>
             <p>メニュー</p>
           </div>
-          <div></div>
+          <div className="modal-close" onClick={menuCloseHandler}>
+            <img src={CloseImg} alt="close" />
+          </div>
         </header>
         <main className="modal-menu-list">
           <ul>

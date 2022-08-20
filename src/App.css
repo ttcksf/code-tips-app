@@ -8,6 +8,8 @@
   --red: #ec1515;
   --black: #333;
   --white: #fff;
+  box-sizing: border-box;
+  margin: 0;
 }
 body {
   --mainBlue: #1877f2;
@@ -18,6 +20,8 @@ body {
   --red: #ec1515;
   --black: #333;
   --white: #fff;
+  box-sizing: border-box;
+  margin: 0;
 }
 ul {
   margin: 0;
@@ -86,7 +90,6 @@ a {
   color: var(--mainBlue);
 }
 .modal-area {
-  max-width: 1440px;
   padding: 20px 24px 0;
   position: fixed;
   top: 0;
@@ -94,7 +97,6 @@ a {
   right: 0;
   bottom: 0;
   background: var(--white);
-  width: 100%;
   height: 100%;
   transition: 0.3s ease left;
 }
@@ -128,10 +130,16 @@ a {
 .modal-menu-img {
   text-align: right;
 }
+.modal-menu-header div p {
+  margin: 0;
+}
 .modal-menu-header div img {
   display: inline-block;
   width: 24px;
   height: 24px;
+}
+.modal-close {
+  text-align: right;
 }
 .modal-menu-list ul {
   margin-top: 16px;
