@@ -5,10 +5,10 @@ import NewPostImg from "../../../images/pencil.png";
 import LogOutImg from "../../../images/door.png";
 import SignOutImg from "../../../images/human.png";
 
-const ModalMenu = ({ menuOpen, menuCloseHandler }) => {
+const ModalMenu = ({ menuToggle, menuCloseHandler }) => {
   return (
     <>
-      <div className="modal-area" style={menuOpen ? { left: 0 } : {}}>
+      <div className="modal-area" style={menuToggle ? { left: 0 } : {}}>
         <header className="modal-menu-header">
           <div onClick={menuCloseHandler}>
             <HeaderMenuBack />

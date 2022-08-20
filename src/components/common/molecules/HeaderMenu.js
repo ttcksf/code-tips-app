@@ -1,24 +1,24 @@
 import HeaderMenuBack from "../atoms/HeaderMenuBack";
 import { useDispatch, useSelector } from "react-redux";
 import MenuImg from "../../../images/dots.png";
-import { menuToggle, menuClose } from "../../../features/uiSlice";
+import { menuOpen, menuClose } from "../../../features/menuSlice";
 import ModalMenu from "./ModalMenu";
 
 const HeaderMenu = ({ headerTitle }) => {
   const dispatch = useDispatch();
-  const { menuOpen } = useSelector((state) => state.ui);
-  console.log(menuOpen);
+  const { menuToggle } = useSelector((state) => state.menu);
+  console.log(menuToggle);
 
-  const menuToggleHandler = () => {
-    dispatch(menuToggle());
+  const menuOpenHandler = () => {
+    dispatch(menuOpen());
   };
 
   const menuCloseHandler = () => {
-    if (menuOpen) dispatch(menuClose());
+    dispatch(menuClose());
   };
   return (
     <>
-      <ModalMenu menuOpen={menuOpen} menuCloseHandler={menuCloseHandler} />
+      <ModalMenu menuToggle={menuToggle} menuCloseHandler={menuCloseHandler} />
       <header className="modal-menu-header">
         {/* TipsList.jsでは無くす予定 */}
         <HeaderMenuBack />
@@ -26,7 +26,7 @@ const HeaderMenu = ({ headerTitle }) => {
           {/* モーダルメニューではスタイルを変える予定 */}
           <p>{headerTitle}</p>
         </div>
-        <div className="modal-menu-img" onClick={menuToggleHandler}>
+        <div className="modal-menu-img" onClick={menuOpenHandler}>
           <img src={MenuImg} alt="menu" />
         </div>
       </header>
