@@ -1,10 +1,33 @@
 //mypost-delete
 import React from "react";
+import CommonButton from "../../components/common/atoms/CommonButton";
+import HeaderMenu from "../../components/common/molecules/HeaderMenu";
+import "./MypostDelete.css";
 
-//mypost-delete
 const MypostDelete = () => {
-  return <div>MypostDelete</div>;
-  //mypost-delete
+  return (
+    <>
+      <div className="inner" style={style.inner}>
+        <HeaderMenu headerTitle="Tips削除" />
+        <div className="mypost-delete">
+          <p>
+            Tipsは一度削除すると元に戻すことができません。
+            <br />
+            よろしければ削除ボタンをクリックしてください。
+          </p>
+        </div>
+      </div>
+      <CommonButton commonBtnText="削除する" />
+    </>
+  );
+};
+
+const style = {
+  inner: {
+    boxSizing: "border-box",
+    width: "100%",
+    overflow: "hidden",
+  },
 };
 
 export default MypostDelete;
