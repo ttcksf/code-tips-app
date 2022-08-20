@@ -4,6 +4,7 @@ import TipsList from "./screens/TipsList/TipsList";
 import Auth from "./screens/Auth/Auth";
 import MypostDelete from "./screens/MypostDelete/MypostDelete";
 import AccountDelete from "./screens/AccountDelete/AccountDelete";
+import NewPost from "./screens/NewPost/NewPost";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       {/* <TipsDetail /> */}
       {/* <TipsList /> */}
       {/* <MypostDelete /> */}
-      <AccountDelete />
+      {/* <AccountDelete /> */}
+      <NewPost />
       {/* <Auth /> */}
     </>
   );
