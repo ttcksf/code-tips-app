@@ -2,12 +2,14 @@ import "./App.css";
 import TipsDetail from "./screens/TipsDetail/TipsDetail";
 import TipsList from "./screens/TipsList/TipsList";
 import Auth from "./screens/Auth/Auth";
+import MypostDelete from "./screens/MypostDelete/MypostDelete";
 
 function App() {
   return (
     <>
       {/* <TipsDetail /> */}
-      <TipsList />
+      {/* <TipsList /> */}
+      <MypostDelete />
       {/* <Auth /> */}
     </>
   );
