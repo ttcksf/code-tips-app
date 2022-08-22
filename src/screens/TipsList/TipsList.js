@@ -20,14 +20,16 @@ const TipsList = () => {
                 <div className="tips-code" key={id}>
                   <img src={tips.img} alt="" />
                 </div>
-                <p className="tips-auther">
-                  {currentUserId === tips.userId ? (
-                    <span className="myid">あなた</span>
-                  ) : (
-                    <span>ID : {tips.id} さん</span>
-                  )}
-                  の投稿
-                </p>
+                {currentUserId === tips.userId ? (
+                  <p className="tips-auther myid">
+                    <span>あなた</span>の投稿
+                  </p>
+                ) : (
+                  <p className="tips-auther">
+                    <span>ID : {tips.id} さん</span>の投稿
+                  </p>
+                )}
+
                 <p className="tips-title">{tips.title}</p>
                 <p className="tips-desc">
                   {tips.description}
