@@ -21,11 +21,10 @@
   padding-top: 5px;
 }
 .tips-auther span {
+  color: var(--lightGray);
 }
-.tips-auther.active {
+.tips-auther .myid {
   color: var(--mainBlue);
-}
-.tips-auther.active span {
 }
 .tips-title {
   font-weight: 500;
