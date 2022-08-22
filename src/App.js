@@ -1,4 +1,6 @@
 import "./App.css";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+
 import TipsDetail from "./screens/TipsDetail/TipsDetail";
 import TipsList from "./screens/TipsList/TipsList";
 import Auth from "./screens/Auth/Auth";
@@ -9,28 +11,25 @@ import NewPost from "./screens/NewPost/NewPost";
 function App() {
   return (
     <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Auth />}></Route>
+          <Route path="/auth" element={<Auth />}></Route>
+          <Route path="/tipslist" element={<TipsList />}></Route>
+          <Route path="/tips/:id" element={<TipsDetail />}></Route>
+          <Route path="/newpost" element={<NewPost />}></Route>
+          <Route path="/postdelete" element={<MypostDelete />}></Route>
+          <Route path="/accountdelete" element={<AccountDelete />}></Route>
+        </Routes>
+      </BrowserRouter>
       {/* <TipsDetail /> */}
-      <TipsList />
+      {/* <TipsList /> */}
       {/* <MypostDelete /> */}
       {/* <AccountDelete /> */}
       {/* <NewPost /> */}
       {/* <Auth /> */}
     </>
   );
-  //useSelectorはストアの状態全体を引数として取り、値を読み取って結果を返す関数
-  //ステートをpostsという名前のスライスのvalueの値に更新する
-  // const postList = useSelector((state) => state.posts.value);
-  // console.log(postList);
-  // return (
-  //   <div className="App">
-  //     {postList.map((post) => (
-  //       <div>
-  //         <h1>{post.title}</h1>
-  //         <p>{post.description}</p>
-  //       </div>
-  //     ))}
-  //   </div>
-  // );
 }
 
 export default App;

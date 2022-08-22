@@ -20,7 +20,7 @@ const InputForm = () => {
           />
         </dl>
         <div className="input-check">
-          <label for="check" className="check-box">
+          <label htmlFor="check" className="check-box">
             <input id="check" type="checkbox" />
             <span className="check-text">記憶する</span>
           </label>
