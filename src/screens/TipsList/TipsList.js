@@ -21,11 +21,11 @@ const TipsList = () => {
                   <img src={tips.img} alt="" />
                 </div>
                 <p className="tips-auther">
-                  <span>
-                    {currentUserId === tips.userId
-                      ? "あなた"
-                      : `ID : ${tips.id} さん`}
-                  </span>
+                  {currentUserId === tips.userId ? (
+                    <span className="myid">あなた</span>
+                  ) : (
+                    <span>ID : {tips.id} さん</span>
+                  )}
                   の投稿
                 </p>
                 <p className="tips-title">{tips.title}</p>
