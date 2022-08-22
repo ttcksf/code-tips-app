@@ -10,10 +10,10 @@ function App() {
   return (
     <>
       {/* <TipsDetail /> */}
-      {/* <TipsList /> */}
+      <TipsList />
       {/* <MypostDelete /> */}
       {/* <AccountDelete /> */}
-      <NewPost />
+      {/* <NewPost /> */}
       {/* <Auth /> */}
     </>
   );
