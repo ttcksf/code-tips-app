@@ -6,7 +6,9 @@ import { tipsData } from "../../data/tipsData";
 import "./TipsList.css";
 
 const TipsList = () => {
-  console.log(tipsData[0].img);
+  console.log(tipsData[0].id);
+  console.log(tipsData[0].userId);
+  const currentUserId = "aaa";
   return (
     <>
       <div className="inner" style={style.inner}>
@@ -19,7 +21,12 @@ const TipsList = () => {
                   <img src={tips.img} alt="" />
                 </div>
                 <p className="tips-auther">
-                  <span>ID : {tips.id} さん</span>の投稿
+                  <span>
+                    {currentUserId === tips.userId
+                      ? "あなた"
+                      : `ID : ${tips.id} さん`}
+                  </span>
+                  の投稿
                 </p>
                 <p className="tips-title">{tips.title}</p>
                 <p className="tips-desc">
