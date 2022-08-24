@@ -1,14 +1,15 @@
 //index
 import React from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
-import { tipsData } from "../../data/tipsData";
 import "./TipsList.css";
 
 const TipsList = () => {
   const navigate = useNavigate();
-
+  const tipsData = useSelector((state) => state.tips.value);
+  console.log(tipsData);
   const currentUserId = "aaa";
   return (
     <>

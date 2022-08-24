@@ -11,8 +11,8 @@ import menuReducer from "./features/menuSlice";
 const store = configureStore({
   //reducerを作る
   reducer: {
-    //postsSliceのReducerをpostsReducerという名前でインポート
-    posts: tipsReducer,
+    //postsSliceのReducerをtipsReducerという名前でインポート
+    tips: tipsReducer,
     menu: menuReducer,
   },
 });
