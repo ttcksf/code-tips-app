@@ -1,6 +1,6 @@
 //detail
 import React from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, Link } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
 import "./TipsDetail.css";
@@ -24,7 +24,9 @@ const TipsDetail = () => {
         </div>
       </div>
       {location.state.currentUserId === location.state.tipsData.userId && (
-        <CommonButton commonBtnText="削除する" active="active" />
+        <Link to="/postdelete">
+          <CommonButton commonBtnText="削除する" active="active" />
+        </Link>
       )}
     </>
   );
