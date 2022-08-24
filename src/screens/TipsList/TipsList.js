@@ -1,23 +1,30 @@
 //index
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
 import { tipsData } from "../../data/tipsData";
 import "./TipsList.css";
 
 const TipsList = () => {
-  console.log(tipsData[0].id);
-  console.log(tipsData[0].userId);
+  const navigate = useNavigate();
+
   const currentUserId = "aaa";
   return (
     <>
       <div className="inner" style={style.inner}>
         <HeaderMenu headerTitle="Tips一覧" />
         <div className="tips-list">
-          {tipsData.map((tips, id) => {
+          {tipsData.map((tips, index) => {
+            let tipsId = tips.id;
+            console.log(tipsId);
             return (
-              <div className="tips">
-                <div className="tips-code" key={id}>
+              <div
+                className="tips"
+                onClick={() => navigate(`/tips/${tips.id}`)}
+                key={index}
+              >
+                <div className="tips-code">
                   <img src={tips.img} alt="" />
                 </div>
                 {currentUserId === tips.userId ? (
