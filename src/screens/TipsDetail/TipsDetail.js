@@ -1,10 +1,13 @@
 //detail
 import React from "react";
+import { useParams } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
 import "./TipsDetail.css";
 
 const TipsDetail = () => {
+  const params = useParams();
+  // console.log(params);
   return (
     <>
       <div className="inner" style={style.inner}>
