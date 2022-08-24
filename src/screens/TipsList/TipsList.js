@@ -16,12 +16,15 @@ const TipsList = () => {
         <HeaderMenu headerTitle="Tips一覧" />
         <div className="tips-list">
           {tipsData.map((tips, index) => {
-            let tipsId = tips.id;
-            console.log(tipsId);
+            console.log(currentUserId);
             return (
               <div
                 className="tips"
-                onClick={() => navigate(`/tips/${tips.id}`)}
+                onClick={() =>
+                  navigate(`/tips/${tips.id}`, {
+                    state: { currentUserId: currentUserId, tipsData: tips },
+                  })
+                }
                 key={index}
               >
                 <div className="tips-code">
