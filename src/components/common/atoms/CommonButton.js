@@ -1,10 +1,9 @@
 import React from "react";
 
-const CommonButton = ({ commonBtnText }) => {
+const CommonButton = ({ commonBtnText, active }) => {
   return (
     <div className="common-footer">
-      {/* <button className="active">{commonBtnText}</button> */}
-      <button>{commonBtnText}</button>
+      <button className={active}>{commonBtnText}</button>
     </div>
   );
 };

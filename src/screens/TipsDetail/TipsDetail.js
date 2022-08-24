@@ -24,7 +24,7 @@ const TipsDetail = () => {
         </div>
       </div>
       {location.state.currentUserId === location.state.tipsData.userId && (
-        <CommonButton commonBtnText="削除する" />
+        <CommonButton commonBtnText="削除する" active="active" />
       )}
     </>
   );
