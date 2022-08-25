@@ -9,7 +9,6 @@ import "./TipsList.css";
 const TipsList = () => {
   const navigate = useNavigate();
   const tipsData = useSelector((state) => state.tips.value);
-  console.log(tipsData);
   const currentUserId = "aaa";
   return (
     <>
@@ -17,15 +16,10 @@ const TipsList = () => {
         <HeaderMenu headerTitle="Tips一覧" />
         <div className="tips-list">
           {tipsData.map((tips, index) => {
-            console.log(currentUserId);
             return (
               <div
                 className="tips"
-                onClick={() =>
-                  navigate(`/tips/${tips.id}`, {
-                    state: { currentUserId: currentUserId, tipsData: tips },
-                  })
-                }
+                onClick={() => navigate(`/tips/${tips.id}`)}
                 key={index}
               >
                 <div className="tips-code">

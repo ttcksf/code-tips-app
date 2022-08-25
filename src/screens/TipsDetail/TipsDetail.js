@@ -1,5 +1,6 @@
 //detail
 import React from "react";
+import { useSelector } from "react-redux";
 import { useParams, useLocation, Link } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
@@ -7,23 +8,25 @@ import "./TipsDetail.css";
 
 const TipsDetail = () => {
   const params = useParams();
-  const location = useLocation();
-  console.log(location);
-  console.log(params);
+  const tipsData = useSelector((state) => state.tips.value);
+  const tipsDetail = tipsData.filter((tips) => tips.id === params.id);
+  console.log(tipsDetail);
+  const currentUserId = "aaa";
+
   return (
     <>
       <div className="inner" style={style.inner}>
         <HeaderMenu headerTitle="Tips詳細" />
         <div className="tips">
-          <p className="tips-title">{location.state.tipsData.title}</p>
+          <p className="tips-title">{tipsDetail[0].title}</p>
           <div className="tips-code">
-            <img src={location.state.tipsData.img} alt="" />
+            <img src={tipsDetail[0].img} alt="" />
           </div>
 
-          <p className="tips-desc">{location.state.tipsData.description}</p>
+          <p className="tips-desc">{tipsDetail[0].description}</p>
         </div>
       </div>
-      {location.state.currentUserId === location.state.tipsData.userId && (
+      {currentUserId === tipsDetail[0].userId && (
         <Link to="/postdelete">
           <CommonButton commonBtnText="削除する" active="active" />
         </Link>
