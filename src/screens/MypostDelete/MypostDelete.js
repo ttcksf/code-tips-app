@@ -1,13 +1,11 @@
 //mypost-delete
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
 import "./MypostDelete.css";
 
 const MypostDelete = () => {
-  const location = useLocation();
-  console.log(location);
   return (
     <>
       <div className="inner" style={style.inner}>
@@ -20,7 +18,9 @@ const MypostDelete = () => {
           </p>
         </div>
       </div>
-      <CommonButton commonBtnText="削除する" active="active" />
+      <Link to="/tipslist">
+        <CommonButton commonBtnText="削除する" active="active" />
+      </Link>
     </>
   );
 };

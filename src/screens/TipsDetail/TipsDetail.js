@@ -1,7 +1,7 @@
 //detail
 import React from "react";
 import { useSelector } from "react-redux";
-import { useParams, useLocation, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
 import "./TipsDetail.css";
@@ -10,7 +10,6 @@ const TipsDetail = () => {
   const params = useParams();
   const tipsData = useSelector((state) => state.tips.value);
   const tipsDetail = tipsData.filter((tips) => tips.id === params.id);
-  console.log(tipsDetail);
   const currentUserId = "aaa";
 
   return (
