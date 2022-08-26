@@ -1,6 +1,6 @@
 //new-post new-post-confirm
 import React from "react";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
 import "./NewPost.css";
