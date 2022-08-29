@@ -8,7 +8,7 @@ import "./TipsList.css";
 
 const TipsList = () => {
   const navigate = useNavigate();
-  const tipsData = useSelector((state) => state.tips.value);
+  const tipsData = useSelector((state) => state.tips.tipsData);
   const currentUserId = "aaa";
   return (
     <>

@@ -6,6 +6,8 @@
   margin-top: 10px;
   overflow: hidden;
 }
+.new-post-img input[type="file"] {
+}
 
 .new-post-img > svg {
   position: absolute;
