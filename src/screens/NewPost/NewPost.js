@@ -65,6 +65,7 @@ const NewPost = () => {
       <CommonButton
         commonBtnText="投稿する"
         isPostingButton={isPostingButton}
+        CommonButtonLink="tipslist"
       />
     </>
   );
