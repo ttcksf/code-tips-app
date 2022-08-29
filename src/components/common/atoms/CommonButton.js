@@ -4,14 +4,16 @@ import "./CommonButton.css";
 
 const CommonButton = ({ isPostingButton, commonBtnText, CommonButtonLink }) => {
   const navigate = useNavigate();
-  console.log(CommonButtonLink);
+  const CommonButtonNavigate = () => {
+    isPostingButton && navigate(`/${CommonButtonLink}`);
+  };
   return (
     <div className="common-footer">
       <button
         style={
           isPostingButton ? style.commonTrueButton : style.commonFalseButton
         }
-        onClick={() => navigate(`/${CommonButtonLink}`)}
+        onClick={() => CommonButtonNavigate()}
       >
         {commonBtnText}
       </button>

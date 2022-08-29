@@ -7,7 +7,6 @@ import ModalMenu from "./ModalMenu";
 const HeaderMenu = ({ headerTitle }) => {
   const dispatch = useDispatch();
   const { menuToggle } = useSelector((state) => state.menu);
-  console.log(menuToggle);
 
   const menuOpenHandler = () => {
     dispatch(menuOpen());
