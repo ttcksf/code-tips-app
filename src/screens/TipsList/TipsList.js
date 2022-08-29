@@ -1,7 +1,7 @@
 //index
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
 import "./TipsList.css";
@@ -10,6 +10,7 @@ const TipsList = () => {
   const navigate = useNavigate();
   const tipsData = useSelector((state) => state.tips.tipsData);
   const currentUserId = "aaa";
+  const isPostingButton = true;
   return (
     <>
       <div className="inner" style={style.inner}>
@@ -45,9 +46,12 @@ const TipsList = () => {
           })}
         </div>
       </div>
-      <Link to="/newpost">
-        <CommonButton commonBtnText="新規投稿" active="active" />
-      </Link>
+
+      <CommonButton
+        commonBtnText="新規投稿"
+        isPostingButton={isPostingButton}
+        CommonButtonLink="newpost"
+      />
     </>
   );
 };

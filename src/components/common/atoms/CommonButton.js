@@ -1,19 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./CommonButton.css";
 
-const CommonButton = ({ isPostingButton, commonBtnText }) => {
+const CommonButton = ({ isPostingButton, commonBtnText, CommonButtonLink }) => {
+  const navigate = useNavigate();
+  console.log(CommonButtonLink);
   return (
     <div className="common-footer">
-      <Link to="/tipslist">
-        <button
-          style={
-            isPostingButton ? style.commonTrueButton : style.commonFalseButton
-          }
-        >
-          {commonBtnText}
-        </button>
-      </Link>
+      <button
+        style={
+          isPostingButton ? style.commonTrueButton : style.commonFalseButton
+        }
+        onClick={() => navigate(`/${CommonButtonLink}`)}
+      >
+        {commonBtnText}
+      </button>
     </div>
   );
 };
