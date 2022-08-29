@@ -1,16 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./CommonButton.css";
 
 const CommonButton = ({ isPostingButton, commonBtnText }) => {
   return (
     <div className="common-footer">
-      <button
-        style={
-          isPostingButton ? style.commonTrueButton : style.commonFalseButton
-        }
-      >
-        {commonBtnText}
-      </button>
+      <Link to="/tipslist">
+        <button
+          style={
+            isPostingButton ? style.commonTrueButton : style.commonFalseButton
+          }
+        >
+          {commonBtnText}
+        </button>
+      </Link>
     </div>
   );
 };
