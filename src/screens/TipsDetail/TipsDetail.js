@@ -8,7 +8,7 @@ import "./TipsDetail.css";
 
 const TipsDetail = () => {
   const params = useParams();
-  const tipsData = useSelector((state) => state.tips.value);
+  const tipsData = useSelector((state) => state.tips.tipsData);
   const tipsDetail = tipsData.filter((tips) => tips.id === params.id);
   const currentUserId = "aaa";
 
