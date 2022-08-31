@@ -1,15 +1,16 @@
 //login-input login-confirm login-failed signup signup-failed
-import React, { useState } from "react";
-import InputForm from "../../components/Auth/molecules/InputForm";
+import React, { useEffect, useState } from "react";
 import InputButton from "../../components/Auth/atoms/InputButton";
 import InputFormHeader from "../../components/Auth/molecules/InputFormHeader";
 import "./Auth.css";
+import InputText from "../../components/Auth/atoms/InputText";
 
 const Auth = () => {
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(true);
   const [authError, setAuthError] = useState(false);
+  const [isInputButton, setIsInputButton] = useState(false);
 
-  const [fromData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
@@ -35,9 +36,17 @@ const Auth = () => {
 
   const inputFormChange = (e) => {
     //name属性を含む要素の値をとる
-    setFormData({ ...FormData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    console.log(formData);
   };
 
+  useEffect(() => {
+    if (formData.email !== "" && formData.password !== "") {
+      setIsInputButton(true);
+    } else {
+      setIsInputButton(false);
+    }
+  }, [formData]);
   return (
     <>
       <div className="inner" style={style.inner}>
@@ -46,8 +55,41 @@ const Auth = () => {
           desc={authDesc()}
           descStyle={authError && "error"}
         />
-        <InputForm />
-        <InputButton btnText={isSignUp ? "ログイン" : "新規登録"} />
+        <div className="input-form">
+          <form>
+            <dl>
+              <InputText
+                labelText="メールアドレス"
+                labelFor="email"
+                inputType="text"
+                inputId="email"
+                inputName="email"
+                onChange={inputFormChange}
+              />
+              <InputText
+                labelText="パスワード"
+                labelFor="password"
+                inputType="password"
+                inputId="password"
+                inputName="password"
+                onChange={inputFormChange}
+              />
+            </dl>
+            <div className="input-check">
+              <label htmlFor="check" className="check-box">
+                <input id="check" type="checkbox" />
+                <span className="check-text">記憶する</span>
+              </label>
+              <span className="forget-password">
+                パスワードをお忘れですか？
+              </span>
+            </div>
+          </form>
+        </div>
+        <InputButton
+          btnText={isSignUp ? "ログイン" : "新規登録"}
+          isInputButton={isInputButton}
+        />
         <div className="form-switch">
           <p>
             {isSignUp ? (

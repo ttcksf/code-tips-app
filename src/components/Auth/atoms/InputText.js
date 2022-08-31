@@ -1,6 +1,13 @@
 import React from "react";
 
-const InputText = ({ labelText, labelFor, inputType, inputId }) => {
+const InputText = ({
+  labelText,
+  labelFor,
+  inputType,
+  inputId,
+  inputName,
+  onChange,
+}) => {
   return (
     <div className="input-row">
       <dt>
@@ -9,7 +16,12 @@ const InputText = ({ labelText, labelFor, inputType, inputId }) => {
         </label>
       </dt>
       <dd>
-        <input type={inputType} id={inputId} />
+        <input
+          type={inputType}
+          id={inputId}
+          name={inputName}
+          onChange={onChange}
+        />
       </dd>
     </div>
   );

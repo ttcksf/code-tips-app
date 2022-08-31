@@ -1,7 +1,6 @@
 import React from "react";
 
 const InputFormHeader = ({ title, desc, descStyle }) => {
-  console.log("style", style);
   return (
     <div className="input-header">
       <h1>{title}</h1>

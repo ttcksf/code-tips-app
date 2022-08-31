@@ -76,10 +76,6 @@ span.forget-password {
   font-weight: bold;
   font-size: 16px;
 }
-.form-btn button.active {
-  background: var(--mainBlue);
-  color: var(--white);
-}
 
 .form-switch {
   margin-top: 16px;
