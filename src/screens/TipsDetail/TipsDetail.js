@@ -14,7 +14,7 @@ const TipsDetail = () => {
 
   return (
     <>
-      <div className="inner" style={style.inner}>
+      <div className="inner">
         <HeaderMenu headerTitle="Tips詳細" />
         <div className="tips">
           <p className="tips-title">{tipsDetail[0].title}</p>
@@ -32,14 +32,6 @@ const TipsDetail = () => {
       )}
     </>
   );
-};
-
-const style = {
-  inner: {
-    boxSizing: "border-box",
-    width: "100%",
-    overflow: "hidden",
-  },
 };
 
 export default TipsDetail;

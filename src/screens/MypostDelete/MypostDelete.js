@@ -8,7 +8,7 @@ import "./MypostDelete.css";
 const MypostDelete = () => {
   return (
     <>
-      <div className="inner" style={style.inner}>
+      <div className="inner">
         <HeaderMenu headerTitle="Tips削除" />
         <div className="mypost-delete">
           <p>
@@ -23,14 +23,6 @@ const MypostDelete = () => {
       </Link>
     </>
   );
-};
-
-const style = {
-  inner: {
-    boxSizing: "border-box",
-    width: "100%",
-    overflow: "hidden",
-  },
 };
 
 export default MypostDelete;

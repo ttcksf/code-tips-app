@@ -1,4 +1,5 @@
 import HeaderMenuBack from "../atoms/HeaderMenuBack";
+import "./HeaderMenu.css";
 import { useDispatch, useSelector } from "react-redux";
 import MenuImg from "../../../images/dots.png";
 import { menuOpen, menuClose } from "../../../features/menuSlice";
