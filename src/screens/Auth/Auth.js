@@ -13,9 +13,10 @@ const Auth = () => {
     email: "",
     password: "",
   });
+
   const inputFormChange = (e) => {
     //name属性を含む要素の値をとる
-    setFormData({ ...FormData, [e.target.value]: e.target.value });
+    setFormData({ ...FormData, [e.target.name]: e.target.value });
   };
 
   return (
@@ -31,11 +32,19 @@ const Auth = () => {
           errorMsg={errorMsg}
         />
         <InputForm />
-        <InputButton btnText="ログイン" />
+        <InputButton btnText={isSignUp ? "ログイン" : "新規登録"} />
         <div className="form-switch">
-          <span>
-            アカウントをお持ちでないですか?<a href="#"> 新規登録</a>
-          </span>
+          <p>
+            {isSignUp ? (
+              <span>
+                アカウントをお持ちでないですか?<button>&nbsp;新規登録</button>
+              </span>
+            ) : (
+              <span>
+                アカウントをお持ちですか?<button>&nbsp;ログイン</button>
+              </span>
+            )}
+          </p>
         </div>
       </div>
     </>
