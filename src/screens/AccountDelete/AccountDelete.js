@@ -5,6 +5,8 @@ import HeaderMenu from "../../components/common/molecules/HeaderMenu";
 import "./AccountDelete.css";
 
 const AccountDelete = () => {
+  const isPostingButton = true;
+
   return (
     <>
       <div className="inner" style={style.inner}>
@@ -20,7 +22,11 @@ const AccountDelete = () => {
           </p>
         </div>
       </div>
-      <CommonButton commonBtnText="退会する" />
+      <CommonButton
+        commonBtnText="退会する"
+        isPostingButton={isPostingButton}
+        CommonButtonLink=""
+      />
     </>
   );
 };

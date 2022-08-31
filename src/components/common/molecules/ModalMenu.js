@@ -42,7 +42,7 @@ const ModalMenu = ({ menuToggle, menuCloseHandler }) => {
                 <span>ログアウト</span>
               </li>
             </Link>
-            <Link to="/account-delete" onClick={menuCloseHandler}>
+            <Link to="/accountdelete" onClick={menuCloseHandler}>
               <li>
                 <img src={SignOutImg} alt="SignOut" />
                 <span>退会</span>
