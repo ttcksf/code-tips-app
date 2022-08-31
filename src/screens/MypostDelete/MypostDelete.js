@@ -6,6 +6,8 @@ import HeaderMenu from "../../components/common/molecules/HeaderMenu";
 import "./MypostDelete.css";
 
 const MypostDelete = () => {
+  const isPostingButton = true;
+
   return (
     <>
       <div className="inner">
@@ -19,7 +21,11 @@ const MypostDelete = () => {
         </div>
       </div>
       <Link to="/tipslist">
-        <CommonButton commonBtnText="削除する" active="active" />
+        <CommonButton
+          commonBtnText="削除する"
+          isPostingButton={isPostingButton}
+          CommonButtonLink="tipslist"
+        />
       </Link>
     </>
   );

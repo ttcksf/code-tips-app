@@ -11,6 +11,7 @@ const TipsDetail = () => {
   const tipsData = useSelector((state) => state.tips.tipsData);
   const tipsDetail = tipsData.filter((tips) => tips.id === params.id);
   const currentUserId = "aaa";
+  const isPostingButton = true;
 
   return (
     <>
@@ -27,7 +28,11 @@ const TipsDetail = () => {
       </div>
       {currentUserId === tipsDetail[0].userId && (
         <Link to="/postdelete">
-          <CommonButton commonBtnText="削除する" active="active" />
+          <CommonButton
+            commonBtnText="削除する"
+            isPostingButton={isPostingButton}
+            CommonButtonLink="mypostdelete"
+          />
         </Link>
       )}
     </>
