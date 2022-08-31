@@ -8,11 +8,30 @@ import "./Auth.css";
 const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [authError, setAuthError] = useState(false);
-  const [errorMsg, setErrorMsg] = useState(false);
+
   const [fromData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  const switchRegister = () => {
+    setIsSignUp(false);
+  };
+  const switchLogin = () => {
+    setIsSignUp(true);
+  };
+
+  const authDesc = () => {
+    if (authError === true) {
+      if (isSignUp) {
+        return "入力情報が一致しませんでした。\nもう一度お試しください。";
+      } else {
+        return "登録できませんでしたので、もう一度お試しください。";
+      }
+    } else {
+      return "メールアドレスとパスワードを入力してください";
+    }
+  };
 
   const inputFormChange = (e) => {
     //name属性を含む要素の値をとる
@@ -24,12 +43,8 @@ const Auth = () => {
       <div className="inner" style={style.inner}>
         <InputFormHeader
           title={isSignUp ? "ログイン" : "新規登録"}
-          desc={
-            authError
-              ? "入力情報が一致しませんでした。\nもう一度お試しください。"
-              : "メールアドレスとパスワードを入力してください"
-          }
-          errorMsg={errorMsg}
+          desc={authDesc()}
+          descStyle={authError && "error"}
         />
         <InputForm />
         <InputButton btnText={isSignUp ? "ログイン" : "新規登録"} />
@@ -37,11 +52,13 @@ const Auth = () => {
           <p>
             {isSignUp ? (
               <span>
-                アカウントをお持ちでないですか?<button>&nbsp;新規登録</button>
+                アカウントをお持ちでないですか?
+                <button onClick={() => switchRegister()}>&nbsp;新規登録</button>
               </span>
             ) : (
               <span>
-                アカウントをお持ちですか?<button>&nbsp;ログイン</button>
+                アカウントをお持ちですか?
+                <button onClick={() => switchLogin()}>&nbsp;ログイン</button>
               </span>
             )}
           </p>
