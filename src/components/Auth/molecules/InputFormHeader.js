@@ -1,10 +1,15 @@
 import React from "react";
 
-const InputFormHeader = ({ title, desc, errorMsg }) => {
+const InputFormHeader = ({ title, desc, descStyle }) => {
+  console.log("style", style);
   return (
     <div className="input-header">
       <h1>{title}</h1>
-      <p style={errorMsg ? style.authFalseDesc : style.authTrueDesc}>{desc}</p>
+      <p
+        style={descStyle === "error" ? style.authFalseDesc : style.authTrueDesc}
+      >
+        {desc}
+      </p>
     </div>
   );
 };
