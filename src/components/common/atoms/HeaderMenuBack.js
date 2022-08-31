@@ -1,15 +1,21 @@
 import React from "react";
 import BackImg from "../../../images/back-arrow.png";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const HeaderMenuBack = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log("location: ", location);
 
   return (
     <>
-      <div className="back-menu-img" onClick={() => navigate(-1)}>
-        <img src={BackImg} alt="back" />
-      </div>
+      {location.pathname === "/tipslist" ? (
+        <div className="back-menu-img"></div>
+      ) : (
+        <div className="back-menu-img" onClick={() => navigate(-1)}>
+          <img src={BackImg} alt="back" />
+        </div>
+      )}
     </>
   );
 };
