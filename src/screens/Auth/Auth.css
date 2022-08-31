@@ -7,14 +7,6 @@
   font-size: 48px;
   margin: 0;
 }
-.input-header p {
-  font-size: 20px;
-  margin: 0;
-  color: var(--lightGray);
-}
-.input-header p.error {
-  color: var(--red);
-}
 
 .input-form dl,
 .input-form dt,

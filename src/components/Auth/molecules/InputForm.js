@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import InputText from "../atoms/InputText";
 
 const InputForm = () => {
