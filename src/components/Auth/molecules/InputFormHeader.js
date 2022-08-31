@@ -1,13 +1,27 @@
 import React from "react";
 
-const InputFormHeader = ({ title, desc }) => {
+const InputFormHeader = ({ title, desc, errorMsg }) => {
   return (
     <div className="input-header">
       <h1>{title}</h1>
-      <p>{desc}</p>
-      {/* <p className="error">{desc}</p> */}
+      <p style={errorMsg ? style.authFalseDesc : style.authTrueDesc}>{desc}</p>
     </div>
   );
+};
+
+const style = {
+  authTrueDesc: {
+    fontSize: "20px",
+    margin: "0",
+    color: "#4E4B66",
+    whiteSpace: "pre-line",
+  },
+  authFalseDesc: {
+    fontSize: "20px",
+    margin: "0",
+    color: "#EC1515",
+    whiteSpace: "pre-line",
+  },
 };
 
 export default InputFormHeader;
