@@ -31,7 +31,7 @@ const NewPost = () => {
 
   return (
     <>
-      <div className="inner" style={style.inner}>
+      <div className="inner">
         <HeaderMenu headerTitle="Tips作成" />
         <div className="new-post-img">
           <input
@@ -69,14 +69,6 @@ const NewPost = () => {
       />
     </>
   );
-};
-
-const style = {
-  inner: {
-    boxSizing: "border-box",
-    width: "100%",
-    overflow: "hidden",
-  },
 };
 
 export default NewPost;

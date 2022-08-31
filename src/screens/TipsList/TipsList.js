@@ -13,7 +13,7 @@ const TipsList = () => {
   const isPostingButton = true;
   return (
     <>
-      <div className="inner" style={style.inner}>
+      <div className="inner">
         <HeaderMenu headerTitle="Tips一覧" />
         <div className="tips-list">
           {tipsData.map((tips, index) => {
@@ -54,14 +54,6 @@ const TipsList = () => {
       />
     </>
   );
-};
-
-const style = {
-  inner: {
-    boxSizing: "border-box",
-    width: "100%",
-    overflow: "hidden",
-  },
 };
 
 export default TipsList;

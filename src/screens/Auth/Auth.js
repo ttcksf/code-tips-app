@@ -49,7 +49,7 @@ const Auth = () => {
   }, [formData]);
   return (
     <>
-      <div className="inner" style={style.inner}>
+      <div className="inner">
         <InputFormHeader
           title={isSignUp ? "ログイン" : "新規登録"}
           desc={authDesc()}
@@ -108,14 +108,6 @@ const Auth = () => {
       </div>
     </>
   );
-};
-
-const style = {
-  inner: {
-    boxSizing: "border-box",
-    width: "100%",
-    overflow: "hidden",
-  },
 };
 
 export default Auth;

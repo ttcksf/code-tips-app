@@ -1,11 +1,15 @@
 import React from "react";
+import "./ModalMenu.css";
 import TipsListImg from "../../../images/home.png";
 import NewPostImg from "../../../images/pencil.png";
 import LogOutImg from "../../../images/door.png";
 import SignOutImg from "../../../images/human.png";
 import CloseImg from "../../../images/close.png";
+import { Link, useNavigate } from "react-router-dom";
 
 const ModalMenu = ({ menuToggle, menuCloseHandler }) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="modal-area" style={menuToggle ? { left: 0 } : {}}>
@@ -20,30 +24,30 @@ const ModalMenu = ({ menuToggle, menuCloseHandler }) => {
         </header>
         <main className="modal-menu-list">
           <ul>
-            <li>
-              <a href="#">
+            <Link to="/tipslist" onClick={menuCloseHandler}>
+              <li>
                 <img src={TipsListImg} alt="TipsList" />
                 <span>Tips一覧</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
+              </li>
+            </Link>
+            <Link to="/newpost" onClick={menuCloseHandler}>
+              <li>
                 <img src={NewPostImg} alt="NewPost" />
                 <span>Tips作成</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
+              </li>
+            </Link>
+            <Link to="/" onClick={menuCloseHandler}>
+              <li>
                 <img src={LogOutImg} alt="LogOut" />
                 <span>ログアウト</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
+              </li>
+            </Link>
+            <Link to="/account-delete" onClick={menuCloseHandler}>
+              <li>
                 <img src={SignOutImg} alt="SignOut" />
                 <span>退会</span>
-              </a>
-            </li>
+              </li>
+            </Link>
           </ul>
         </main>
       </div>
