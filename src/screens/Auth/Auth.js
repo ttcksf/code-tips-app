@@ -6,7 +6,7 @@ import "./Auth.css";
 import InputText from "../../components/Auth/atoms/InputText";
 
 const Auth = () => {
-  const [isSignUp, setIsSignUp] = useState(true);
+  const [isSignUp, setIsSignUp] = useState(false);
   const [authError, setAuthError] = useState(false);
   const [isInputButton, setIsInputButton] = useState(false);
 
@@ -27,7 +27,7 @@ const Auth = () => {
       if (isSignUp) {
         return "入力情報が一致しませんでした。\nもう一度お試しください。";
       } else {
-        return "登録できませんでしたので、もう一度お試しください。";
+        return "登録できませんでしたので、\nもう一度お試しください。";
       }
     } else {
       return "メールアドレスとパスワードを入力してください";
