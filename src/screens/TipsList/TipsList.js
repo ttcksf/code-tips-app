@@ -1,32 +1,38 @@
 //index
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
 import "./TipsList.css";
 import { collection, doc, getDocs, QuerySnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
+import { fetchTips } from "../../features/tipsSlice";
 
 const TipsList = () => {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+  const { data: tips, status } = useSelector((state) => state.tips);
   const currentUserId = "aaa";
   const isPostingButton = true;
 
-  const [tips, setTips] = useState([]);
   useEffect(() => {
-    const tipsCollection = collection(db, "tips");
-    getDocs(tipsCollection).then((querySnapshot) => {
-      setTips(
-        querySnapshot.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }))
-      );
-    });
-    console.log(tips);
-  }, []);
+    dispatch(fetchTips());
+    // console.log("tips: ", tips);
+  });
+
+  // const [tips, setTips] = useState([]);
+  // useEffect(() => {
+  //   const tipsCollection = collection(db, "tips");
+  //   getDocs(tipsCollection).then((querySnapshot) => {
+  //     setTips(
+  //       querySnapshot.docs.map((doc) => ({
+  //         ...doc.data(),
+  //         id: doc.id,
+  //       }))
+  //     );
+  //   });
+  // }, []);
   return (
     <>
       <div className="inner">
