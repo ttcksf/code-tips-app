@@ -16,7 +16,7 @@ function App() {
           <Route path="/" element={<Auth />}></Route>
           <Route path="/auth" element={<Auth />}></Route>
           <Route path="/tipslist" element={<TipsList />}></Route>
-          <Route path="/tips/:id" element={<TipsDetail />}></Route>
+          <Route path="tips/:tipsId" element={<TipsDetail />}></Route>
           <Route path="/newpost" element={<NewPost />}></Route>
           <Route path="/postdelete" element={<MypostDelete />}></Route>
           <Route path="/accountdelete" element={<AccountDelete />}></Route>

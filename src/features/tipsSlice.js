@@ -17,15 +17,7 @@ const tipsSlice = createSlice({
     data: [],
     status: tipsStatus.tipsIdling,
   },
-  //Reduxの特定のアクションタイプを処理するための関数(switchのcase文と同じ）が入ったオブジェクト
-  //オブジェクト内のキーは、アクションを生成するために使用されcreateReducerに渡される
-  // reducers: {
-  //   //アクション名
-  //   addPost: (state, action) => {
-  //     //前のステートの配列（value）にプッシュしていく
-  //     state.tipsData.push(action.payload);
-  //   },
-  // },
+
   extraReducers: (builder) => {
     builder
       .addCase(fetchTips.pending, (state, action) => {

@@ -1,39 +1,32 @@
 //detail
-import { doc, getDoc } from "firebase/firestore";
 import React from "react";
-import { useSelector } from "react-redux";
-import { useParams, Link } from "react-router-dom";
+import { useLocation, useParams, Link } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
-import { db } from "../../firebase";
 import "./TipsDetail.css";
 
 const TipsDetail = () => {
-  const params = useParams();
-  // const tipsData = useSelector((state) => state.tips.tipsData);
-  // const tipsDetail = tipsData.filter((tips) => tips.id === params.id);
+  const { tipsId } = useParams();
+  const location = useLocation();
+  console.log("location: ", location);
+
   const currentUserId = "aaa";
   const isPostingButton = true;
-
-  const tipsData = doc(db, "tips", "LFE7aOLGb6XpvskKXjuG");
-  getDoc(tipsData).then((documentSnapshot) => {
-    console.log(documentSnapshot.data());
-  });
 
   return (
     <>
       <div className="inner">
         <HeaderMenu headerTitle="Tips詳細" />
         <div className="tips">
-          {/* <p className="tips-title">{tipsDetail[0].title}</p>
+          <p className="tips-title">{location.state.tip.title}</p>
           <div className="tips-code">
-            <img src={tipsDetail[0].img} alt="" />
+            {/* <img src={location.state.tip.img} alt="" /> */}
           </div>
 
-          <p className="tips-desc">{tipsDetail[0].description}</p> */}
+          <p className="tips-desc">{location.state.tip.desc}</p>
         </div>
       </div>
-      {/* {currentUserId === tipsDetail[0].userId && (
+      {currentUserId === location.state.tip.userId && (
         <Link to="/postdelete">
           <CommonButton
             commonBtnText="削除する"
@@ -41,7 +34,7 @@ const TipsDetail = () => {
             CommonButtonLink="mypostdelete"
           />
         </Link>
-      )} */}
+      )}
     </>
   );
 };
