@@ -21,6 +21,7 @@ const TipsList = () => {
 
   useEffect(() => {
     dispatch(fetchTips());
+    console.log(tips);
   }, []);
 
   return (
@@ -46,7 +47,7 @@ const TipsList = () => {
                   </p>
                 ) : (
                   <p className="tips-auther">
-                    <span>ID : {tip.id} さん</span>の投稿
+                    <span>ID : {tip.userId} さん</span>の投稿
                   </p>
                 )}
 

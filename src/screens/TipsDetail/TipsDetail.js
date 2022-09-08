@@ -6,7 +6,6 @@ import HeaderMenu from "../../components/common/molecules/HeaderMenu";
 import "./TipsDetail.css";
 
 const TipsDetail = () => {
-  const { tipsId } = useParams();
   const location = useLocation();
   console.log("location: ", location);
 
@@ -20,7 +19,7 @@ const TipsDetail = () => {
         <div className="tips">
           <p className="tips-title">{location.state.tip.title}</p>
           <div className="tips-code">
-            {/* <img src={location.state.tip.img} alt="" /> */}
+            <img src={location.state.tip.thumbnail} alt="" />
           </div>
 
           <p className="tips-desc">{location.state.tip.desc}</p>
