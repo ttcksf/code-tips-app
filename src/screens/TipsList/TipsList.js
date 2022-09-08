@@ -38,7 +38,7 @@ const TipsList = () => {
                 key={tip.tipsId}
               >
                 <div className="tips-code">
-                  {/* <img src={tip.img} alt="" /> */}
+                  <img src={tip.thumbnail} alt="" />
                 </div>
                 {currentUserId === tip.userId ? (
                   <p className="tips-auther myid">
