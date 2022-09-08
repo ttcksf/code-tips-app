@@ -1,7 +1,12 @@
 //new-post new-post-confirm
+import { async } from "@firebase/util";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
+import { getDownloadURL, ref, uploadString } from "firebase/storage";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
+import { db, storage } from "../../firebase";
 import "./NewPost.css";
 
 const NewPost = () => {
@@ -11,6 +16,7 @@ const NewPost = () => {
   const [isPostingButton, setIsPostingButton] = useState(false);
   const changeInputTitle = (e) => setTipsTitle(e.target.value);
   const changeInputDesc = (e) => setTipsDesc(e.target.value);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (tipsTitle !== "" && tipsDesc !== "") {
@@ -21,12 +27,37 @@ const NewPost = () => {
   }, [tipsDesc, tipsTitle]);
 
   const imageChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      let imgFile = e.target.files[0];
-      setTipsImg({
-        tipsImg: URL.createObjectURL(imgFile),
-      });
+    const imgReader = new FileReader();
+    if (e.target.files[0]) {
+      imgReader.readAsDataURL(e.target.files[0]);
+      imgReader.onload = (readerEvent) => {
+        setTipsImg(readerEvent.target.result);
+      };
     }
+  };
+
+  const submitNewTips = async (e) => {
+    const tipsDocs = await addDoc(collection(db, "tips"), {
+      useId: "aaa",
+      title: tipsTitle,
+      desc: tipsDesc,
+    });
+    const tipsThumbnail = ref(
+      storage,
+      `tips/${tipsDocs.id}/thumbnail_${tipsDocs.id}`
+    );
+    await uploadString(tipsThumbnail, tipsImg, "data_url").then(
+      async (snapshot) => {
+        const downloadThumbnail = await getDownloadURL(tipsThumbnail);
+        await updateDoc(doc(db, "tips", tipsDocs.id), {
+          thumbnail: downloadThumbnail,
+        });
+      }
+    );
+    setTipsTitle("");
+    setTipsImg(null);
+
+    if (isPostingButton && navigate("/tipslist"));
   };
 
   return (
@@ -65,7 +96,7 @@ const NewPost = () => {
       <CommonButton
         commonBtnText="投稿する"
         isPostingButton={isPostingButton}
-        CommonButtonLink="tipslist"
+        onClick={() => submitNewTips()}
       />
     </>
   );

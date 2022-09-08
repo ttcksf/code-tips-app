@@ -1,19 +1,14 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import "./CommonButton.css";
 
-const CommonButton = ({ isPostingButton, commonBtnText, CommonButtonLink }) => {
-  const navigate = useNavigate();
-  const CommonButtonNavigate = () => {
-    isPostingButton && navigate(`/${CommonButtonLink}`);
-  };
+const CommonButton = ({ isPostingButton, commonBtnText, onClick }) => {
   return (
     <div className="common-footer">
       <button
         style={
           isPostingButton ? style.commonTrueButton : style.commonFalseButton
         }
-        onClick={() => CommonButtonNavigate()}
+        onClick={onClick}
       >
         {commonBtnText}
       </button>
