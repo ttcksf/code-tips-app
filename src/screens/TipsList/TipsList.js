@@ -21,7 +21,6 @@ const TipsList = () => {
 
   useEffect(() => {
     dispatch(fetchTips());
-    console.log(tips);
   }, []);
 
   return (
@@ -52,10 +51,8 @@ const TipsList = () => {
                 )}
 
                 <p className="tips-title">{tip.title}</p>
-                <p className="tips-desc">
-                  {tip.desc}
-                  <span>...</span>
-                </p>
+
+                <p className="tips-desc">{tip.desc}</p>
               </div>
             );
           })}
