@@ -28,7 +28,11 @@
   font-weight: 500;
   font-size: 20px;
 }
+
 .tips-desc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 14px;
   font-weight: 400;
 }

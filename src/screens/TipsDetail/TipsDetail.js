@@ -7,7 +7,6 @@ import "./TipsDetail.css";
 
 const TipsDetail = () => {
   const location = useLocation();
-  console.log("location: ", location);
 
   const currentUserId = "aaa";
   const isPostingButton = true;

@@ -1,7 +1,11 @@
 //new-post new-post-confirm
-import { async } from "@firebase/util";
 import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
-import { getDownloadURL, ref, uploadString } from "firebase/storage";
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadString,
+} from "firebase/storage";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
@@ -27,12 +31,17 @@ const NewPost = () => {
   }, [tipsDesc, tipsTitle]);
 
   const imageChange = (e) => {
-    const imgReader = new FileReader();
+    e.preventDefault();
+
     if (e.target.files[0]) {
-      imgReader.readAsDataURL(e.target.files[0]);
+      const imgReader = new FileReader();
+      const selectedFile = e.target.files[0];
+      imgReader.readAsDataURL(selectedFile);
       imgReader.onload = (readerEvent) => {
         setTipsImg(readerEvent.target.result);
       };
+    } else {
+      setTipsImg(null);
     }
   };
 
@@ -42,24 +51,28 @@ const NewPost = () => {
       title: tipsTitle,
       desc: tipsDesc,
     });
+
     const tipsThumbnail = ref(
       storage,
       `tips/${tipsDocs.id}/thumbnail_${tipsDocs.id}`
     );
-    await uploadString(tipsThumbnail, tipsImg, "data_url").then(
-      async (snapshot) => {
-        const downloadThumbnail = await getDownloadURL(tipsThumbnail);
-        await updateDoc(doc(db, "tips", tipsDocs.id), {
-          thumbnail: downloadThumbnail,
-        });
-      }
-    );
+    console.log(tipsImg);
+    if (tipsImg) {
+      await uploadString(tipsThumbnail, tipsImg, "data_url").then(
+        async (snapshot) => {
+          const downloadThumbnail = await getDownloadURL(tipsThumbnail);
+
+          await updateDoc(doc(db, "tips", tipsDocs.id), {
+            thumbnail: downloadThumbnail,
+          });
+        }
+      );
+    }
     setTipsTitle("");
     setTipsImg(null);
 
     if (isPostingButton && navigate("/tipslist"));
   };
-
   return (
     <>
       <div className="inner">
@@ -71,9 +84,7 @@ const NewPost = () => {
             id="tipsImg"
             onChange={imageChange}
           />
-          {tipsImg && (
-            <img className="preview-post-img" src={tipsImg.tipsImg} alt="" />
-          )}
+          {tipsImg && <img className="preview-post-img" src={tipsImg} alt="" />}
         </div>
         <div className="new-post-title">
           <input
