@@ -15,15 +15,6 @@ const TipsDetail = () => {
   const currentUserId = "aaa";
   const isPostingButton = true;
 
-  const deleteMyTips = async () => {
-    // await deleteDoc(doc(db, "tips", location.state.tip.id));
-    // const deleteRef = ref(
-    //   storage,
-    //   `tips/${location.state.tip.id}/thumbnail_${location.state.tip.id}`
-    // );
-    // await deleteObject(deleteRef);
-  };
-
   return (
     <>
       <div className="inner">
@@ -41,7 +32,7 @@ const TipsDetail = () => {
         <CommonButton
           commonBtnText="削除する"
           isPostingButton={isPostingButton}
-          onClick={() => navigate("/postdelete")}
+          onClick={() => navigate("/postdelete", { state: { location } })}
         />
       )}
     </>
