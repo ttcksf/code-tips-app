@@ -1,5 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { collection, getDocs, onSnapshot } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  onSnapshot,
+  orderBy,
+  query,
+} from "firebase/firestore";
 import { db } from "../firebase";
 
 //テスト用のローディング
@@ -40,7 +46,11 @@ export default tipsSlice.reducer;
 export const fetchTips = createAsyncThunk("tips/fetch", async () => {
   let fetchTipsData = [];
   const tipsCollectionRef = await collection(db, "tips");
-  await getDocs(tipsCollectionRef).then((querySnapshot) => {
+  const sortedTipsCollectionRef = query(
+    tipsCollectionRef,
+    orderBy("timestamp", "desc")
+  );
+  await getDocs(sortedTipsCollectionRef).then((querySnapshot) => {
     querySnapshot.docs.forEach((doc) =>
       fetchTipsData.push({
         ...doc.data(),

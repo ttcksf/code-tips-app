@@ -1,5 +1,12 @@
 //new-post new-post-confirm
-import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  orderBy,
+  serverTimestamp,
+  updateDoc,
+} from "firebase/firestore";
 import {
   getDownloadURL,
   getStorage,
@@ -46,33 +53,35 @@ const NewPost = () => {
   };
 
   const submitNewTips = async (e) => {
-    const tipsDocs = await addDoc(collection(db, "tips"), {
-      useId: "aaa",
-      title: tipsTitle,
-      desc: tipsDesc,
-    });
+    if (isPostingButton) {
+      const tipsDocs = await addDoc(collection(db, "tips"), {
+        useId: "aaa",
+        title: tipsTitle,
+        desc: tipsDesc,
+        timestamp: serverTimestamp(),
+      });
 
-    const tipsThumbnail = ref(
-      storage,
-      `tips/${tipsDocs.id}/thumbnail_${tipsDocs.id}`
-    );
-    console.log(tipsImg);
-    if (tipsImg) {
-      await uploadString(tipsThumbnail, tipsImg, "data_url").then(
-        async (snapshot) => {
-          const downloadThumbnail = await getDownloadURL(tipsThumbnail);
-
-          await updateDoc(doc(db, "tips", tipsDocs.id), {
-            thumbnail: downloadThumbnail,
-          });
-        }
+      const tipsThumbnail = ref(
+        storage,
+        `tips/${tipsDocs.id}/thumbnail_${tipsDocs.id}`
       );
-    }
-    setTipsTitle("");
-    setTipsImg(null);
+      if (tipsImg) {
+        await uploadString(tipsThumbnail, tipsImg, "data_url").then(
+          async (snapshot) => {
+            const downloadThumbnail = await getDownloadURL(tipsThumbnail);
 
-    if (isPostingButton && navigate("/tipslist"));
+            await updateDoc(doc(db, "tips", tipsDocs.id), {
+              thumbnail: downloadThumbnail,
+            });
+          }
+        );
+      }
+      setTipsTitle("");
+      setTipsImg(null);
+      navigate("/tipslist");
+    }
   };
+
   return (
     <>
       <div className="inner">

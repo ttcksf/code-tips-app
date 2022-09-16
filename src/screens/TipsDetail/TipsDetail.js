@@ -1,8 +1,11 @@
 //detail
+import { deleteDoc, doc } from "firebase/firestore";
+import { deleteObject, ref } from "firebase/storage";
 import React from "react";
 import { useLocation, useParams, Link } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
+import { db, storage } from "../../firebase";
 import "./TipsDetail.css";
 
 const TipsDetail = () => {
@@ -10,6 +13,17 @@ const TipsDetail = () => {
 
   const currentUserId = "aaa";
   const isPostingButton = true;
+
+  // const deleteMyTips = async () => {
+  //   await deleteDoc(doc(db, "tips", location.state.tip.id));
+  //   const deleteRef = ref(
+  //     storage,
+  //     `tips/${location.state.tip.id}/thumbnail_${location.state.tip.id}`
+  //   );
+  //   await deleteObject(deleteRef).then(() => {
+
+  //   })
+  // };
 
   return (
     <>

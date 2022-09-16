@@ -15,6 +15,10 @@ const store = configureStore({
     tips: tipsReducer,
     menu: menuReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
