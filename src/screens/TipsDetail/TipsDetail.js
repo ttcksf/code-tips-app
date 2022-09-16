@@ -2,7 +2,7 @@
 import { deleteDoc, doc } from "firebase/firestore";
 import { deleteObject, ref } from "firebase/storage";
 import React from "react";
-import { useLocation, useParams, Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
 import { db, storage } from "../../firebase";
@@ -10,20 +10,19 @@ import "./TipsDetail.css";
 
 const TipsDetail = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const currentUserId = "aaa";
   const isPostingButton = true;
 
-  // const deleteMyTips = async () => {
-  //   await deleteDoc(doc(db, "tips", location.state.tip.id));
-  //   const deleteRef = ref(
-  //     storage,
-  //     `tips/${location.state.tip.id}/thumbnail_${location.state.tip.id}`
-  //   );
-  //   await deleteObject(deleteRef).then(() => {
-
-  //   })
-  // };
+  const deleteMyTips = async () => {
+    // await deleteDoc(doc(db, "tips", location.state.tip.id));
+    // const deleteRef = ref(
+    //   storage,
+    //   `tips/${location.state.tip.id}/thumbnail_${location.state.tip.id}`
+    // );
+    // await deleteObject(deleteRef);
+  };
 
   return (
     <>
@@ -39,13 +38,11 @@ const TipsDetail = () => {
         </div>
       </div>
       {currentUserId === location.state.tip.userId && (
-        <Link to="/postdelete">
-          <CommonButton
-            commonBtnText="削除する"
-            isPostingButton={isPostingButton}
-            CommonButtonLink="mypostdelete"
-          />
-        </Link>
+        <CommonButton
+          commonBtnText="削除する"
+          isPostingButton={isPostingButton}
+          onClick={() => navigate("/postdelete")}
+        />
       )}
     </>
   );

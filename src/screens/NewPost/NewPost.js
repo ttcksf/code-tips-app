@@ -55,7 +55,7 @@ const NewPost = () => {
   const submitNewTips = async (e) => {
     if (isPostingButton) {
       const tipsDocs = await addDoc(collection(db, "tips"), {
-        useId: "aaa",
+        userId: "aaa",
         title: tipsTitle,
         desc: tipsDesc,
         timestamp: serverTimestamp(),
