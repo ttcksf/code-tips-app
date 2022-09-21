@@ -10,12 +10,14 @@ import "./MypostDelete.css";
 
 const MypostDelete = () => {
   const location = useLocation();
+  console.log(location);
   const navigate = useNavigate();
   const deleteMyTips = async () => {
-    await deleteDoc(doc(db, "tips", location.state.location.state.tip.tipsId));
+    await deleteDoc(doc(db, "tips", location.state.tipsId));
     const deleteRef = ref(
       storage,
-      `tips/${location.state.location.state.tip.tipsId}/thumbnail_${location.state.location.state.tip.tipsId}`
+
+      `tips/aaa/thumbnail_bbb`
     );
     await deleteObject(deleteRef).then(() => {
       navigate("/tipslist");
