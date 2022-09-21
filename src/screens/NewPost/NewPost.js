@@ -5,6 +5,7 @@ import {
   doc,
   orderBy,
   serverTimestamp,
+  Timestamp,
   updateDoc,
 } from "firebase/firestore";
 import {
@@ -28,6 +29,7 @@ const NewPost = () => {
   const changeInputTitle = (e) => setTipsTitle(e.target.value);
   const changeInputDesc = (e) => setTipsDesc(e.target.value);
   const navigate = useNavigate();
+  const currentUserId = "aaa";
 
   useEffect(() => {
     if (tipsTitle !== "" && tipsDesc !== "") {
@@ -54,12 +56,12 @@ const NewPost = () => {
 
   const submitNewTips = async (e) => {
     if (isPostingButton) {
-      const tipsThumbnail = ref(
-        storage,
-        // `tips/${tipsDocs.id}/thumbnail_${tipsDocs.id}`
-        `tips/ccc/thumbnail_ddd`
-      );
       if (tipsImg) {
+        let currentDate = Date();
+        let tipsThumbnail = ref(
+          storage,
+          `tips/${currentUserId}/${currentDate}`
+        );
         await uploadString(tipsThumbnail, tipsImg, "data_url").then(
           async (snapshot) => {
             const downloadThumbnail = await getDownloadURL(tipsThumbnail);
