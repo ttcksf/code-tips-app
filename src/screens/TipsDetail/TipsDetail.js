@@ -10,6 +10,8 @@ import "./TipsDetail.css";
 
 const TipsDetail = () => {
   const location = useLocation();
+  const { title, desc, userId, thumbnail, tipsId } = location.state.tip;
+
   const navigate = useNavigate();
 
   const currentUserId = "aaa";
@@ -20,19 +22,23 @@ const TipsDetail = () => {
       <div className="inner">
         <HeaderMenu headerTitle="Tips詳細" />
         <div className="tips">
-          <p className="tips-title">{location.state.tip.title}</p>
+          <p className="tips-title">{title}</p>
           <div className="tips-code">
-            <img src={location.state.tip.thumbnail} alt="" />
+            <img src={thumbnail} alt="" />
           </div>
 
-          <p className="tips-desc">{location.state.tip.desc}</p>
+          <p className="tips-desc">{desc}</p>
         </div>
       </div>
-      {currentUserId === location.state.tip.userId && (
+      {currentUserId === userId && (
         <CommonButton
           commonBtnText="削除する"
           isPostingButton={isPostingButton}
-          onClick={() => navigate("/postdelete", { state: { location } })}
+          onClick={() =>
+            navigate("/postdelete", {
+              state: { title, desc, userId, thumbnail, tipsId },
+            })
+          }
         />
       )}
     </>

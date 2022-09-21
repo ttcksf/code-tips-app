@@ -54,27 +54,31 @@ const NewPost = () => {
 
   const submitNewTips = async (e) => {
     if (isPostingButton) {
-      const tipsDocs = await addDoc(collection(db, "tips"), {
-        userId: "aaa",
-        title: tipsTitle,
-        desc: tipsDesc,
-        timestamp: serverTimestamp(),
-      });
-
       const tipsThumbnail = ref(
         storage,
-        `tips/${tipsDocs.id}/thumbnail_${tipsDocs.id}`
+        // `tips/${tipsDocs.id}/thumbnail_${tipsDocs.id}`
+        `tips/ccc/thumbnail_ddd`
       );
       if (tipsImg) {
         await uploadString(tipsThumbnail, tipsImg, "data_url").then(
           async (snapshot) => {
             const downloadThumbnail = await getDownloadURL(tipsThumbnail);
-
-            await updateDoc(doc(db, "tips", tipsDocs.id), {
+            await addDoc(collection(db, "tips"), {
+              userId: "aaa",
+              title: tipsTitle,
+              desc: tipsDesc,
+              timestamp: serverTimestamp(),
               thumbnail: downloadThumbnail,
             });
           }
         );
+      } else {
+        await addDoc(collection(db, "tips"), {
+          userId: "aaa",
+          title: tipsTitle,
+          desc: tipsDesc,
+          timestamp: serverTimestamp(),
+        });
       }
       setTipsTitle("");
       setTipsImg(null);
