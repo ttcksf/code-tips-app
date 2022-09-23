@@ -4,8 +4,13 @@ import InputButton from "../../components/Auth/atoms/InputButton";
 import InputFormHeader from "../../components/Auth/molecules/InputFormHeader";
 import "./Auth.css";
 import InputText from "../../components/Auth/atoms/InputText";
+import { async } from "@firebase/util";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
+  const navigate = useNavigate();
   const [isSignUp, setIsSignUp] = useState(false);
   const [authError, setAuthError] = useState(false);
   const [isInputButton, setIsInputButton] = useState(false);
@@ -37,7 +42,22 @@ const Auth = () => {
   const inputFormChange = (e) => {
     //name属性を含む要素の値をとる
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(formData);
+    console.log(formData.email);
+  };
+
+  const submitFormData = async (e) => {
+    e.preventDefault();
+    try {
+      await createUserWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      ).then(navigate("/tipslist"));
+    } catch (error) {
+      console.log(error.code);
+      console.log(error.message);
+      alert("error");
+    }
   };
 
   useEffect(() => {
@@ -64,6 +84,7 @@ const Auth = () => {
                 inputType="text"
                 inputId="email"
                 inputName="email"
+                value={formData.email}
                 onChange={inputFormChange}
               />
               <InputText
@@ -72,6 +93,7 @@ const Auth = () => {
                 inputType="password"
                 inputId="password"
                 inputName="password"
+                value={formData.password}
                 onChange={inputFormChange}
               />
             </dl>
@@ -89,6 +111,7 @@ const Auth = () => {
         <InputButton
           btnText={isSignUp ? "ログイン" : "新規登録"}
           isInputButton={isInputButton}
+          onClick={(e) => submitFormData(e)}
         />
         <div className="form-switch">
           <p>

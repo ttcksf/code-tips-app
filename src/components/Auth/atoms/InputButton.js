@@ -1,16 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
-const InputButton = ({ btnText, isInputButton }) => {
-  const navigate = useNavigate();
-  const InputButtonNavigate = () => {
-    isInputButton && navigate("/tipslist");
-  };
+const InputButton = ({ btnText, isInputButton, onClick }) => {
   return (
     <div className="form-btn">
       <button
         style={isInputButton ? style.formTrueButton : style.formFalseButton}
-        onClick={() => InputButtonNavigate()}
+        onClick={onClick}
       >
         {btnText}
       </button>
