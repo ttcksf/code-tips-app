@@ -7,9 +7,7 @@ import SignOutImg from "../../../images/human.png";
 import CloseImg from "../../../images/close.png";
 import { Link, useNavigate } from "react-router-dom";
 
-const ModalMenu = ({ menuToggle, menuCloseHandler }) => {
-  const navigate = useNavigate();
-
+const ModalMenu = ({ menuToggle, menuCloseHandler, logOut }) => {
   return (
     <>
       <div className="modal-area" style={menuToggle ? { left: 0 } : {}}>
@@ -36,12 +34,12 @@ const ModalMenu = ({ menuToggle, menuCloseHandler }) => {
                 <span>Tips作成</span>
               </li>
             </Link>
-            <Link to="/" onClick={menuCloseHandler}>
-              <li>
+            <a>
+              <li onClick={logOut}>
                 <img src={LogOutImg} alt="LogOut" />
                 <span>ログアウト</span>
               </li>
-            </Link>
+            </a>
             <Link to="/accountdelete" onClick={menuCloseHandler}>
               <li>
                 <img src={SignOutImg} alt="SignOut" />
