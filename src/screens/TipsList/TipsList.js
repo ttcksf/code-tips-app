@@ -6,13 +6,15 @@ import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
 import "./TipsList.css";
 import { fetchTips } from "../../features/tipsSlice";
+import { auth } from "../../firebase";
 
 const TipsList = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { data: tips } = useSelector((state) => state.tips);
 
-  const currentUserId = "aaa";
+  const currentUserId = auth.currentUser.uid;
+  console.log(currentUserId);
   const isPostingButton = true;
 
   const linkToNewpost = () => {

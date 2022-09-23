@@ -31,12 +31,14 @@ const HeaderMenu = ({ headerTitle }) => {
       alert(error.code);
     }
   };
+
   return (
     <>
       <ModalMenu
         menuToggle={menuToggle}
         menuCloseHandler={menuCloseHandler}
         logOut={logOut}
+        signOut={signOut}
       />
       <header className="modal-menu-header">
         <HeaderMenuBack />

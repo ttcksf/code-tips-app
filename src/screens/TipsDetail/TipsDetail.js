@@ -5,7 +5,7 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
-import { db, storage } from "../../firebase";
+import { auth, db, storage } from "../../firebase";
 import "./TipsDetail.css";
 
 const TipsDetail = () => {
@@ -14,7 +14,8 @@ const TipsDetail = () => {
 
   const navigate = useNavigate();
 
-  const currentUserId = "aaa";
+  const currentUserId = auth.currentUser.uid;
+  console.log(currentUserId);
   const isPostingButton = true;
 
   return (
