@@ -52,11 +52,10 @@ const Auth = () => {
         auth,
         formData.email,
         formData.password
-      ).then(navigate("/tipslist"));
+      );
+      navigate("/tipslist");
     } catch (error) {
-      console.log(error.code);
-      console.log(error.message);
-      alert("error");
+      setAuthError(true);
     }
   };
 
