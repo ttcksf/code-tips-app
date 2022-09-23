@@ -7,6 +7,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import tipsReducer from "./features/tipsSlice";
 import menuReducer from "./features/menuSlice";
+import userReducer from "./features/userSlice";
 
 const store = configureStore({
   //reducerを作る
@@ -14,6 +15,7 @@ const store = configureStore({
     //postsSliceのReducerをtipsReducerという名前でインポート
     tips: tipsReducer,
     menu: menuReducer,
+    user: userReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

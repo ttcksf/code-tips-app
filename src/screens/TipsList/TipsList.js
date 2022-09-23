@@ -7,14 +7,13 @@ import HeaderMenu from "../../components/common/molecules/HeaderMenu";
 import "./TipsList.css";
 import { fetchTips } from "../../features/tipsSlice";
 import { auth } from "../../firebase";
+import { fetchUser } from "../../features/userSlice";
 
 const TipsList = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { data: tips } = useSelector((state) => state.tips);
-
-  const currentUserId = auth.currentUser.uid;
-  console.log(currentUserId);
+  const currentUserId = useSelector((state) => state.user.uid);
   const isPostingButton = true;
 
   const linkToNewpost = () => {
@@ -22,6 +21,7 @@ const TipsList = () => {
   };
 
   useEffect(() => {
+    dispatch(fetchUser());
     dispatch(fetchTips());
   }, []);
 
