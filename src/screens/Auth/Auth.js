@@ -4,8 +4,10 @@ import InputButton from "../../components/Auth/atoms/InputButton";
 import InputFormHeader from "../../components/Auth/molecules/InputFormHeader";
 import "./Auth.css";
 import InputText from "../../components/Auth/atoms/InputText";
-import { async } from "@firebase/util";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 
@@ -32,7 +34,7 @@ const Auth = () => {
       if (isSignUp) {
         return "入力情報が一致しませんでした。\nもう一度お試しください。";
       } else {
-        return "登録できませんでしたので、\nもう一度お試しください。";
+        return "登録できませんでしたので、\nもう一度お試しください。\n既にアカウントをお持ちの場合は、ログイン画面よりログインしてください。";
       }
     } else {
       return "メールアドレスとパスワードを入力してください";
@@ -48,11 +50,19 @@ const Auth = () => {
   const submitFormData = async (e) => {
     e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(
-        auth,
-        formData.email,
-        formData.password
-      );
+      if (isSignUp) {
+        await signInWithEmailAndPassword(
+          auth,
+          formData.email,
+          formData.password
+        );
+      } else {
+        await createUserWithEmailAndPassword(
+          auth,
+          formData.email,
+          formData.password
+        );
+      }
       navigate("/tipslist");
     } catch (error) {
       setAuthError(true);
