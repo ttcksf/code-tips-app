@@ -6,14 +6,26 @@ import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
 import "./TipsList.css";
 import { fetchTips } from "../../features/tipsSlice";
+import { logIn } from "../../features/userSlice";
 import { auth } from "../../firebase";
-import { fetchUser } from "../../features/userSlice";
 
 const TipsList = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const stateUser = useSelector((state) => state.user);
+  let currentUserId = "";
+  if (stateUser.data.length !== 0) {
+    currentUserId = stateUser.data.email;
+  } else {
+    if (auth.currentUser) {
+      currentUserId = auth.currentUser.email;
+    }
+  }
+
+  // const currentUserId = currentUser.data.email;
   const { data: tips } = useSelector((state) => state.tips);
-  const currentUserId = useSelector((state) => state.user.uid);
+
   const isPostingButton = true;
 
   const linkToNewpost = () => {
@@ -21,7 +33,6 @@ const TipsList = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchUser());
     dispatch(fetchTips());
   }, []);
 

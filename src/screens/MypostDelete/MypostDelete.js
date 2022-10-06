@@ -10,7 +10,6 @@ import "./MypostDelete.css";
 
 const MypostDelete = () => {
   const location = useLocation();
-  console.log(location);
   const navigate = useNavigate();
   const deleteMyTips = async () => {
     await deleteDoc(doc(db, "tips", location.state.tipsId));

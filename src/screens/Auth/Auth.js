@@ -5,13 +5,18 @@ import InputFormHeader from "../../components/Auth/molecules/InputFormHeader";
 import "./Auth.css";
 import InputText from "../../components/Auth/atoms/InputText";
 import {
+  browserSessionPersistence,
   createUserWithEmailAndPassword,
+  setPersistence,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logIn, logOut } from "../../features/userSlice";
 
 const Auth = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isSignUp, setIsSignUp] = useState(false);
   const [authError, setAuthError] = useState(false);
@@ -44,18 +49,38 @@ const Auth = () => {
   const inputFormChange = (e) => {
     //name属性を含む要素の値をとる
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(formData.email);
   };
 
   const submitFormData = async (e) => {
     e.preventDefault();
     try {
       if (isSignUp) {
-        await signInWithEmailAndPassword(
+        // await setPersistence(auth, browserSessionPersistence).then(() => {
+        //   return signInWithEmailAndPassword(
+        //     auth,
+        //     formData.email,
+        //     formData.password
+        //   ).then((userCredential) => {
+        //     dispatch(
+        //       logIn({
+        //         uid: userCredential.user.uid,
+        //         email: userCredential.user.email,
+        //       })
+        //     );
+        //   });
+        // });
+        signInWithEmailAndPassword(
           auth,
           formData.email,
           formData.password
-        );
+        ).then((userCredential) => {
+          dispatch(
+            logIn({
+              uid: userCredential.user.uid,
+              email: userCredential.user.email,
+            })
+          );
+        });
       } else {
         await createUserWithEmailAndPassword(
           auth,

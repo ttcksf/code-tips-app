@@ -15,7 +15,6 @@ const TipsDetail = () => {
   const navigate = useNavigate();
 
   const currentUserId = auth.currentUser.uid;
-  console.log(currentUserId);
   const isPostingButton = true;
 
   return (

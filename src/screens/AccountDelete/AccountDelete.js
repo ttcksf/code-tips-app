@@ -8,7 +8,6 @@ import "./AccountDelete.css";
 
 const AccountDelete = () => {
   const [signOutError, setSignOutError] = useState(false);
-  console.log(signOutError);
   const navigate = useNavigate();
   const isPostingButton = true;
   const signOut = () => {
