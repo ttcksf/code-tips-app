@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
-import { db, storage } from "../../firebase";
+import { auth, db, storage } from "../../firebase";
 import "./NewPost.css";
 
 const NewPost = () => {
@@ -29,7 +29,7 @@ const NewPost = () => {
   const changeInputTitle = (e) => setTipsTitle(e.target.value);
   const changeInputDesc = (e) => setTipsDesc(e.target.value);
   const navigate = useNavigate();
-  const currentUserId = "aaa";
+  const currentUserId = auth.currentUser.email;
 
   useEffect(() => {
     if (tipsTitle !== "" && tipsDesc !== "") {
@@ -66,7 +66,7 @@ const NewPost = () => {
           async (snapshot) => {
             const downloadThumbnail = await getDownloadURL(tipsThumbnail);
             await addDoc(collection(db, "tips"), {
-              userId: "aaa",
+              userId: currentUserId,
               title: tipsTitle,
               desc: tipsDesc,
               timestamp: serverTimestamp(),
@@ -76,7 +76,7 @@ const NewPost = () => {
         );
       } else {
         await addDoc(collection(db, "tips"), {
-          userId: "aaa",
+          userId: currentUserId,
           title: tipsTitle,
           desc: tipsDesc,
           timestamp: serverTimestamp(),

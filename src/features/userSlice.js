@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 //テスト用のローディング
 export const userStatus = Object.freeze({
@@ -14,33 +14,19 @@ const userSlice = createSlice({
   name: "user",
   //ステートの初期設定
   initialState: {
-    uid: null,
-    email: null,
-    password: null,
+    data: [],
     status: userStatus.userIdling,
   },
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchUser.pending, (state, action) => {
-        state.status = userStatus.userLoading;
-      })
-      .addCase(fetchUser.fulfilled, (state, action) => {
-        state.status = userStatus.userIdling;
-        state.uid = action.payload.uid;
-      })
-      .addCase(fetchUser.rejected, (state, action) => {
-        state.status = userStatus.userError;
-      });
+  reducers: {
+    logIn: (state, action) => {
+      state.data = action.payload;
+    },
+    logOut: (state) => {
+      state.data = null;
+    },
   },
 });
-
-export const fetchUser = createAsyncThunk("user/fetch", async () => {
-  let currentUserData = await auth.currentUser;
-  console.log("currentUserData: ");
-  console.log(currentUserData);
-  return currentUserData;
-});
-
 //userSliceのReducerをエクスポート
 export default userSlice.reducer;
+
+export const { logIn, logOut } = userSlice.actions;
