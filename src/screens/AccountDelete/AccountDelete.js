@@ -1,5 +1,6 @@
 //account-delete
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
@@ -10,9 +11,23 @@ const AccountDelete = () => {
   const [signOutError, setSignOutError] = useState(false);
   const navigate = useNavigate();
   const isPostingButton = true;
+
+  const stateUser = useSelector((state) => state.user);
+  let deleteUser = auth.currentUser;
+  if (stateUser.data.length !== 0) {
+    deleteUser = stateUser;
+  } else {
+    if (auth.currentUser) {
+      deleteUser = auth.currentUser;
+    }
+  }
+
+  console.log("deleteuser: ");
+  console.log(deleteUser);
+
   const signOut = () => {
     try {
-      auth.currentUser.delete().then(() => navigate("/"));
+      deleteUser.delete().then(() => navigate("/"));
     } catch (error) {
       setSignOutError(true);
     }
