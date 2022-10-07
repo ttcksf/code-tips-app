@@ -23,7 +23,9 @@ const TipsList = () => {
     }
   }
 
-  // const currentUserId = currentUser.data.email;
+  console.log("currentUserId: ");
+  console.log(currentUserId);
+
   const { data: tips } = useSelector((state) => state.tips);
 
   const isPostingButton = true;
