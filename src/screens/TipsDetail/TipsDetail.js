@@ -1,6 +1,6 @@
 //detail
 import { deleteDoc, doc } from "firebase/firestore";
-import { deleteObject, ref } from "firebase/storage";
+import { deleteObject, listAll, ref } from "firebase/storage";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
@@ -10,14 +10,21 @@ import "./TipsDetail.css";
 
 const TipsDetail = () => {
   const location = useLocation();
-  const { title, desc, userId, thumbnail, tipsId } = location.state.tip;
+  const { title, desc, userId, thumbnail, tipsId, timestamp } =
+    location.state.tip;
   const currentUserId = location.state.currentUserId;
-
   const navigate = useNavigate();
 
+  const listRef = ref(storage, `tips/${currentUserId}`);
+  let imagePath = "";
+  listAll(listRef).then((res) => {
+    res.items.forEach((itemRef) => {
+      imagePath = itemRef._location.path_;
+      return imagePath;
+    });
+  });
+
   const isPostingButton = true;
-  console.log("currentUserId-detail: ");
-  console.log(currentUserId);
 
   return (
     <>
@@ -38,7 +45,16 @@ const TipsDetail = () => {
           isPostingButton={isPostingButton}
           onClick={() =>
             navigate("/postdelete", {
-              state: { title, desc, userId, thumbnail, tipsId },
+              state: {
+                title,
+                desc,
+                userId,
+                thumbnail,
+                tipsId,
+                timestamp,
+                currentUserId,
+                imagePath,
+              },
             })
           }
         />

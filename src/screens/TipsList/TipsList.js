@@ -27,7 +27,6 @@ const TipsList = () => {
   const { data: tips } = useSelector((state) => state.tips);
 
   const isPostingButton = true;
-
   const linkToNewpost = () => {
     isPostingButton && navigate("/newpost");
   };
@@ -42,8 +41,6 @@ const TipsList = () => {
         <HeaderMenu headerTitle="Tips一覧" />
         <div className="tips-list">
           {tips.map((tip) => {
-            console.log("currentUserId-list: ");
-            console.log(currentUserId);
             return (
               <div
                 className="tips"
