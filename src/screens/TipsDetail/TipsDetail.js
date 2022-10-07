@@ -11,11 +11,13 @@ import "./TipsDetail.css";
 const TipsDetail = () => {
   const location = useLocation();
   const { title, desc, userId, thumbnail, tipsId } = location.state.tip;
+  const currentUserId = location.state.currentUserId;
 
   const navigate = useNavigate();
 
-  const currentUserId = auth.currentUser.uid;
   const isPostingButton = true;
+  console.log("currentUserId-detail: ");
+  console.log(currentUserId);
 
   return (
     <>

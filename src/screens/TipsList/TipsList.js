@@ -42,11 +42,15 @@ const TipsList = () => {
         <HeaderMenu headerTitle="Tips一覧" />
         <div className="tips-list">
           {tips.map((tip) => {
+            console.log("currentUserId-list: ");
+            console.log(currentUserId);
             return (
               <div
                 className="tips"
                 onClick={() =>
-                  navigate(`/tips/${tip.tipsId}`, { state: { tip } })
+                  navigate(`/tips/${tip.tipsId}`, {
+                    state: { tip, currentUserId },
+                  })
                 }
                 key={tip.tipsId}
               >
