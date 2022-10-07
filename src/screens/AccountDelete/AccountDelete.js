@@ -19,6 +19,7 @@ const AccountDelete = () => {
   } else {
     if (auth.currentUser) {
       deleteUser = auth.currentUser;
+      console.log(deleteUser);
     }
   }
 
