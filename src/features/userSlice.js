@@ -1,6 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { auth } from "../firebase";
-import { onAuthStateChanged } from "firebase/auth";
+import { createSlice } from "@reduxjs/toolkit";
 
 //テスト用のローディング
 export const userStatus = Object.freeze({

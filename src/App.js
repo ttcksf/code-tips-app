@@ -7,10 +7,6 @@ import Auth from "./screens/Auth/Auth";
 import MyPostDelete from "./screens/MyPostDelete/MyPostDelete";
 import AccountDelete from "./screens/AccountDelete/AccountDelete";
 import NewPost from "./screens/NewPost/NewPost";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./firebase";
 
 function App() {
   return (

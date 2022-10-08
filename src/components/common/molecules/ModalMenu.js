@@ -5,7 +5,7 @@ import NewPostImg from "../../../images/pencil.png";
 import LogOutImg from "../../../images/door.png";
 import SignOutImg from "../../../images/human.png";
 import CloseImg from "../../../images/close.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ModalMenu = ({ menuToggle, menuCloseHandler, logOut }) => {
   return (

@@ -1,11 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import {
-  collection,
-  getDocs,
-  onSnapshot,
-  orderBy,
-  query,
-} from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { db } from "../firebase";
 
 //テスト用のローディング
@@ -26,14 +20,14 @@ const tipsSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-      .addCase(fetchTips.pending, (state, action) => {
+      .addCase(fetchTips.pending, (state) => {
         state.status = tipsStatus.tipsLoading;
       })
       .addCase(fetchTips.fulfilled, (state, action) => {
         state.data = action.payload;
         state.status = tipsStatus.tipsIdling;
       })
-      .addCase(fetchTips.rejected, (state, action) => {
+      .addCase(fetchTips.rejected, (state) => {
         state.status = tipsStatus.tipsError;
       });
   },

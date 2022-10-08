@@ -55,20 +55,6 @@ const Auth = () => {
     e.preventDefault();
     try {
       if (isSignUp) {
-        // await setPersistence(auth, browserSessionPersistence).then(() => {
-        //   return signInWithEmailAndPassword(
-        //     auth,
-        //     formData.email,
-        //     formData.password
-        //   ).then((userCredential) => {
-        //     dispatch(
-        //       logIn({
-        //         uid: userCredential.user.uid,
-        //         email: userCredential.user.email,
-        //       })
-        //     );
-        //   });
-        // });
         signInWithEmailAndPassword(
           auth,
           formData.email,
