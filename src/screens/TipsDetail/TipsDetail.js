@@ -44,7 +44,7 @@ const TipsDetail = () => {
           commonBtnText="削除する"
           isPostingButton={isPostingButton}
           onClick={() =>
-            navigate("/postdelete", {
+            navigate("/postDelete", {
               state: {
                 title,
                 desc,

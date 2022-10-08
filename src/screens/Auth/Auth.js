@@ -88,7 +88,7 @@ const Auth = () => {
           formData.password
         );
       }
-      navigate("/tipslist");
+      navigate("/tipsList");
     } catch (error) {
       setAuthError(true);
     }

@@ -1,19 +1,6 @@
 //new-post new-post-confirm
-import {
-  addDoc,
-  collection,
-  doc,
-  orderBy,
-  serverTimestamp,
-  Timestamp,
-  updateDoc,
-} from "firebase/firestore";
-import {
-  getDownloadURL,
-  getStorage,
-  ref,
-  uploadString,
-} from "firebase/storage";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { getDownloadURL, ref, uploadString } from "firebase/storage";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
@@ -84,7 +71,7 @@ const NewPost = () => {
       }
       setTipsTitle("");
       setTipsImg(null);
-      navigate("/tipslist");
+      navigate("/tipsList");
     }
   };
 

@@ -27,7 +27,7 @@ const TipsList = () => {
 
   const isPostingButton = true;
   const linkToNewpost = () => {
-    isPostingButton && navigate("/newpost");
+    isPostingButton && navigate("/newPost");
   };
 
   useEffect(() => {
