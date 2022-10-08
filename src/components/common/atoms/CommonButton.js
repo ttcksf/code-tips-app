@@ -4,14 +4,14 @@ import "./CommonButton.css";
 const CommonButton = ({ isPostingButton, commonBtnText, onClick }) => {
   return (
     <div className="common-footer">
-      <button
-        style={
-          isPostingButton ? style.commonTrueButton : style.commonFalseButton
-        }
-        onClick={onClick}
-      >
-        {commonBtnText}
-      </button>
+      {/* isInputButtonでクリックできるボタンとできないボタンを出力仕分けている */}
+      {isPostingButton ? (
+        <button style={style.commonTrueButton} onClick={onClick}>
+          {commonBtnText}
+        </button>
+      ) : (
+        <button style={style.commonFalseButton}>{commonBtnText}</button>
+      )}
     </div>
   );
 };
