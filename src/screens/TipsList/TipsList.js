@@ -23,9 +23,6 @@ const TipsList = () => {
     }
   }
 
-  console.log("currentUserId: ");
-  console.log(currentUserId);
-
   const { data: tips } = useSelector((state) => state.tips);
 
   const isPostingButton = true;

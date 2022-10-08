@@ -1,5 +1,5 @@
 //account-delete
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
@@ -10,7 +10,7 @@ import "./AccountDelete.css";
 const AccountDelete = () => {
   const [signOutError, setSignOutError] = useState(false);
   const navigate = useNavigate();
-  const isPostingButton = true;
+  const [isPostingButton, setIsPostingButton] = useState(false);
 
   const stateUser = useSelector((state) => state.user);
   let deleteUser = auth.currentUser;
@@ -19,7 +19,6 @@ const AccountDelete = () => {
   } else {
     if (auth.currentUser) {
       deleteUser = auth.currentUser;
-      console.log(deleteUser);
     }
   }
 
@@ -36,11 +35,23 @@ const AccountDelete = () => {
 
   const signOutDesc = () => {
     if (!signOutError) {
-      return "こちらの画面は退会処理になります。\n退会されますと、過去に投稿されたデータは全て削除されてしまいます。\n\nこのまま退会して問題なければ以下のボタンをクリックすることで退会できます。";
+      if (deleteUser !== null) {
+        return "こちらの画面は退会処理になります。\n退会されますと、過去に投稿されたデータは全て削除されてしまいます。\n\nこのまま退会して問題なければ以下のボタンをクリックすることで退会できます。";
+      } else {
+        return "退会処理に失敗しました。\nお手数ですが一つ前のページに戻って再度やり直してください。";
+      }
     } else {
       return "退会処理に失敗しました。\nお手数ですが以下の宛先までお問い合わせください。\n\n\n【宛先】ttc0104ksf1993@gmail.com";
     }
   };
+
+  useEffect(() => {
+    if (deleteUser !== null) {
+      setIsPostingButton(true);
+    } else {
+      setIsPostingButton(false);
+    }
+  }, []);
 
   return (
     <>
@@ -59,7 +70,7 @@ const AccountDelete = () => {
       <CommonButton
         commonBtnText="退会する"
         isPostingButton={isPostingButton}
-        onClick={() => signOut()}
+        onClick={signOut}
       />
     </>
   );
