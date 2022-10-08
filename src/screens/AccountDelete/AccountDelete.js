@@ -22,9 +22,6 @@ const AccountDelete = () => {
     }
   }
 
-  console.log("deleteuser: ");
-  console.log(deleteUser);
-
   const signOut = () => {
     try {
       deleteUser.delete().then(() => navigate("/"));

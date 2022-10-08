@@ -1,4 +1,3 @@
-//mypost-delete
 import { deleteDoc, doc } from "firebase/firestore";
 import { deleteObject, ref } from "firebase/storage";
 import React from "react";
@@ -6,9 +5,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
 import { db, storage } from "../../firebase";
-import "./MypostDelete.css";
 
-const MypostDelete = () => {
+const MyPostDelete = () => {
   const location = useLocation();
   const { imagePath } = location.state;
   const navigate = useNavigate();
@@ -16,7 +14,7 @@ const MypostDelete = () => {
     await deleteDoc(doc(db, "tips", location.state.tipsId));
     const deleteRef = ref(storage, imagePath);
     await deleteObject(deleteRef).then(() => {
-      navigate("/tipslist");
+      navigate("/tipsList");
     });
   };
   const isPostingButton = true;
@@ -25,7 +23,7 @@ const MypostDelete = () => {
     <>
       <div className="inner">
         <HeaderMenu headerTitle="Tips削除" />
-        <div className="mypost-delete">
+        <div className="my-post-delete">
           <p>
             Tipsは一度削除すると元に戻すことができません。
             <br />
@@ -43,4 +41,4 @@ const MypostDelete = () => {
   );
 };
 
-export default MypostDelete;
+export default MyPostDelete;

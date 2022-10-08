@@ -8,7 +8,7 @@ const HeaderMenuBack = () => {
 
   return (
     <>
-      {location.pathname === "/tipslist" ? (
+      {location.pathname === "/tipsList" ? (
         <div className="back-menu-img"></div>
       ) : (
         <div className="back-menu-img" onClick={() => navigate(-1)}>

@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import TipsDetail from "./screens/TipsDetail/TipsDetail";
 import TipsList from "./screens/TipsList/TipsList";
 import Auth from "./screens/Auth/Auth";
-import MypostDelete from "./screens/MypostDelete/MypostDelete";
+import MyPostDelete from "./screens/MyPostDelete/MyPostDelete";
 import AccountDelete from "./screens/AccountDelete/AccountDelete";
 import NewPost from "./screens/NewPost/NewPost";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,19 +19,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Auth />}></Route>
           <Route path="/auth" element={<Auth />}></Route>
-          <Route path="/tipslist" element={<TipsList />}></Route>
+          <Route path="/tipsList" element={<TipsList />}></Route>
           <Route path="tips/:tipsId" element={<TipsDetail />}></Route>
-          <Route path="/newpost" element={<NewPost />}></Route>
-          <Route path="/postdelete" element={<MypostDelete />}></Route>
-          <Route path="/accountdelete" element={<AccountDelete />}></Route>
+          <Route path="/newPost" element={<NewPost />}></Route>
+          <Route path="/postDelete" element={<MyPostDelete />}></Route>
+          <Route path="/accountDelete" element={<AccountDelete />}></Route>
         </Routes>
       </BrowserRouter>
-      {/* <TipsDetail /> */}
-      {/* <TipsList /> */}
-      {/* <MypostDelete /> */}
-      {/* <AccountDelete /> */}
-      {/* <NewPost /> */}
-      {/* <Auth /> */}
     </>
   );
 }

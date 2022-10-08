@@ -22,13 +22,13 @@ const ModalMenu = ({ menuToggle, menuCloseHandler, logOut }) => {
         </header>
         <main className="modal-menu-list">
           <ul>
-            <Link to="/tipslist" onClick={menuCloseHandler}>
+            <Link to="/tipsList" onClick={menuCloseHandler}>
               <li>
                 <img src={TipsListImg} alt="TipsList" />
                 <span>Tips一覧</span>
               </li>
             </Link>
-            <Link to="/newpost" onClick={menuCloseHandler}>
+            <Link to="/newPost" onClick={menuCloseHandler}>
               <li>
                 <img src={NewPostImg} alt="NewPost" />
                 <span>Tips作成</span>
@@ -40,7 +40,7 @@ const ModalMenu = ({ menuToggle, menuCloseHandler, logOut }) => {
                 <span>ログアウト</span>
               </li>
             </a>
-            <Link to="/accountdelete" onClick={menuCloseHandler}>
+            <Link to="/accountDelete" onClick={menuCloseHandler}>
               <li>
                 <img src={SignOutImg} alt="SignOut" />
                 <span>退会</span>
