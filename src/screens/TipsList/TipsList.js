@@ -32,6 +32,8 @@ const TipsList = () => {
     dispatch(fetchTips());
   }, []);
 
+
+
   return (
     <>
       <div className="inner">

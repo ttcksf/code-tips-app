@@ -55,7 +55,7 @@ const Auth = () => {
     e.preventDefault();
     try {
       if (isSignUp) {
-        signInWithEmailAndPassword(
+        await signInWithEmailAndPassword(
           auth,
           formData.email,
           formData.password

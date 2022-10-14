@@ -27,6 +27,7 @@ const TipsDetail = () => {
   return (
     <>
       <div className="inner">
+        {/* テキストをファイルで管理して呼びだすようにする */}
         <HeaderMenu headerTitle="Tips詳細" />
         <div className="tips">
           <p className="tips-title">{title}</p>

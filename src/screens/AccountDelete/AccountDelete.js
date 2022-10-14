@@ -50,6 +50,7 @@ const AccountDelete = () => {
     }
   }, []);
 
+
   return (
     <>
       <div className="inner" style={style.inner}>
@@ -67,7 +68,7 @@ const AccountDelete = () => {
       <CommonButton
         commonBtnText="退会する"
         isPostingButton={isPostingButton}
-        onClick={signOut}
+        onClick={() => signOut()}
       />
     </>
   );
