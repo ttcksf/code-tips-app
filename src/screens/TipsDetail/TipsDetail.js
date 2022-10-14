@@ -1,11 +1,9 @@
-//detail
-import { deleteDoc, doc } from "firebase/firestore";
-import { deleteObject, listAll, ref } from "firebase/storage";
+import { listAll, ref } from "firebase/storage";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
-import { auth, db, storage } from "../../firebase";
+import { storage } from "../../firebase";
 import "./TipsDetail.css";
 
 const TipsDetail = () => {
@@ -23,12 +21,13 @@ const TipsDetail = () => {
       return imagePath;
     });
   });
-
+  // TODO:isPostingButtonをuseStateで管理する
   const isPostingButton = true;
 
   return (
     <>
       <div className="inner">
+        {/* テキストをファイルで管理して呼びだすようにする */}
         <HeaderMenu headerTitle="Tips詳細" />
         <div className="tips">
           <p className="tips-title">{title}</p>

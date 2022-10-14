@@ -3,12 +3,13 @@ import React from "react";
 const InputButton = ({ btnText, isInputButton, onClick }) => {
   return (
     <div className="form-btn">
-      <button
-        style={isInputButton ? style.formTrueButton : style.formFalseButton}
-        onClick={onClick}
-      >
-        {btnText}
-      </button>
+      {isInputButton ? (
+        <button style={style.formTrueButton} onClick={onClick}>
+          {btnText}
+        </button>
+      ) : (
+        <button style={style.formFalseButton}>{btnText}</button>
+      )}
     </div>
   );
 };

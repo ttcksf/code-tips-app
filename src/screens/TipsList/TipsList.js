@@ -1,4 +1,3 @@
-//index
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +5,6 @@ import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
 import "./TipsList.css";
 import { fetchTips } from "../../features/tipsSlice";
-import { logIn } from "../../features/userSlice";
 import { auth } from "../../firebase";
 
 const TipsList = () => {
@@ -26,13 +24,15 @@ const TipsList = () => {
   const { data: tips } = useSelector((state) => state.tips);
 
   const isPostingButton = true;
-  const linkToNewpost = () => {
+  const linkToNewPost = () => {
     isPostingButton && navigate("/newPost");
   };
 
   useEffect(() => {
     dispatch(fetchTips());
   }, []);
+
+
 
   return (
     <>
@@ -76,7 +76,7 @@ const TipsList = () => {
         commonBtnText="新規投稿"
         isPostingButton={isPostingButton}
         CommonButtonLink="newpost"
-        onClick={() => linkToNewpost()}
+        onClick={() => linkToNewPost()}
       />
     </>
   );
