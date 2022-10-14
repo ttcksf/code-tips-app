@@ -10,6 +10,7 @@ const MyPostDelete = () => {
   const location = useLocation();
   const { imagePath } = location.state;
   const navigate = useNavigate();
+  
   const deleteMyTips = async () => {
     await deleteDoc(doc(db, "tips", location.state.tipsId));
     const deleteRef = ref(storage, imagePath);
