@@ -56,7 +56,8 @@ const NewPost = () => {
               userId: currentUserId,
               title: tipsTitle,
               desc: tipsDesc,
-              timestamp: serverTimestamp(),
+              // timestamp: serverTimestamp(),
+              timestamp: currentDate,
               thumbnail: downloadThumbnail,
             });
           }
