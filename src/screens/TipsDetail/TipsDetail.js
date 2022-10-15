@@ -13,14 +13,9 @@ const TipsDetail = () => {
   const currentUserId = location.state.currentUserId;
   const navigate = useNavigate();
 
-  const listRef = ref(storage, `tips/${currentUserId}`);
-  let imagePath = "";
-  listAll(listRef).then((res) => {
-    res.items.forEach((itemRef) => {
-      imagePath = itemRef._location.path_;
-      return imagePath;
-    });
-  });
+  const imagePath = ref(storage, `tips/${currentUserId}/${timestamp}`)._location
+    .path_;
+
   // TODO:isPostingButtonをuseStateで管理する
   const isPostingButton = true;
 
@@ -45,13 +40,7 @@ const TipsDetail = () => {
           onClick={() =>
             navigate("/postDelete", {
               state: {
-                title,
-                desc,
-                userId,
-                thumbnail,
                 tipsId,
-                timestamp,
-                currentUserId,
                 imagePath,
               },
             })

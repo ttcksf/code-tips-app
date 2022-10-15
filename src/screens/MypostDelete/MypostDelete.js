@@ -8,11 +8,12 @@ import { db, storage } from "../../firebase";
 
 const MyPostDelete = () => {
   const location = useLocation();
-  const { imagePath } = location.state;
+  console.log(location);
+  const { imagePath, tipsId } = location.state;
   const navigate = useNavigate();
-  
+
   const deleteMyTips = async () => {
-    await deleteDoc(doc(db, "tips", location.state.tipsId));
+    await deleteDoc(doc(db, "tips", tipsId));
     const deleteRef = ref(storage, imagePath);
     await deleteObject(deleteRef).then(() => {
       navigate("/tipsList");
