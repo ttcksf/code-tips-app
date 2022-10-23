@@ -117,7 +117,7 @@ const Auth = () => {
                 onChange={inputFormChange}
               />
             </dl>
-            <div className="input-check">
+            {/* <div className="input-check">
               <label htmlFor="check" className="check-box">
                 <input id="check" type="checkbox" />
                 <span className="check-text">記憶する</span>
@@ -125,7 +125,7 @@ const Auth = () => {
               <span className="forget-password">
                 パスワードをお忘れですか？
               </span>
-            </div>
+            </div> */}
           </form>
         </div>
         <InputButton

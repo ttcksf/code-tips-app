@@ -1,5 +1,5 @@
-import { listAll, ref } from "firebase/storage";
-import React from "react";
+import { ref } from "firebase/storage";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
@@ -11,18 +11,11 @@ const TipsDetail = () => {
   const { title, desc, userId, thumbnail, tipsId, timestamp } =
     location.state.tip;
   const currentUserId = location.state.currentUserId;
+  const isPostingButton = true;
   const navigate = useNavigate();
 
-  const listRef = ref(storage, `tips/${currentUserId}`);
-  let imagePath = "";
-  listAll(listRef).then((res) => {
-    res.items.forEach((itemRef) => {
-      imagePath = itemRef._location.path_;
-      return imagePath;
-    });
-  });
-  // TODO:isPostingButtonをuseStateで管理する
-  const isPostingButton = true;
+  const imagePath = ref(storage, `tips/${currentUserId}/${timestamp}`)._location
+    .path_;
 
   return (
     <>
@@ -45,13 +38,7 @@ const TipsDetail = () => {
           onClick={() =>
             navigate("/postDelete", {
               state: {
-                title,
-                desc,
-                userId,
-                thumbnail,
                 tipsId,
-                timestamp,
-                currentUserId,
                 imagePath,
               },
             })

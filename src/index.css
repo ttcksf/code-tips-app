@@ -37,7 +37,15 @@ code {
 }
 .inner {
   width: 100%;
-  max-width: 1440px;
   padding: 20px 24px 80px;
   margin: 0 auto;
+}
+@media screen and (min-width: 430px){
+  .inner{
+    max-width: 400px;
+  }
+}
+
+@media screen and (min-width: 1025px){
+  
 }
