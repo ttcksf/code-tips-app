@@ -8,7 +8,6 @@ import { db, storage } from "../../firebase";
 
 const MyPostDelete = () => {
   const location = useLocation();
-  console.log(location);
   const { imagePath, tipsId } = location.state;
   const navigate = useNavigate();
 
