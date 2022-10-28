@@ -10,13 +10,15 @@
   }
 }
 .new-post-img {
-  height: 150px;
+  width: 100%;
   background: var(--bgGray);
   border: 2px dashed var(--lightGray);
   border-radius: 3px;
   margin-top: 10px;
   overflow: hidden;
+  aspect-ratio: 16 / 9;
 }
+
 .new-post-img input[type="file"] {
 }
 
@@ -29,7 +31,6 @@
 
 .new-post-img > img {
   width: 100%;
-  max-height: 150px;
   object-fit: cover;
 }
 .new-post-title {
