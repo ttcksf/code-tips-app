@@ -80,31 +80,35 @@ const NewPost = () => {
     <>
       <div className="tips-new-inner">
         <HeaderMenu headerTitle="Tips作成" />
-        <div className="new-post-img">
-          <input
-            type="file"
-            name="tipsImg"
-            id="tipsImg"
-            onChange={imageChange}
-          />
-          {tipsImg && <img className="preview-post-img" src={tipsImg} alt="" />}
-        </div>
-        <div className="new-post-title">
-          <input
-            type="text"
-            placeholder="タイトル"
-            value={tipsTitle}
-            onChange={changeInputTitle}
-          />
-        </div>
-        <div className="new-post-desc">
-          <textarea
-            cols={50}
-            rows={10}
-            placeholder="説明文"
-            value={tipsDesc}
-            onChange={changeInputDesc}
-          />
+        <div className="inner">
+          <div className="new-post-img">
+            <input
+              type="file"
+              name="tipsImg"
+              id="tipsImg"
+              onChange={imageChange}
+            />
+            {tipsImg && (
+              <img className="preview-post-img" src={tipsImg} alt="" />
+            )}
+          </div>
+          <div className="new-post-title">
+            <input
+              type="text"
+              placeholder="タイトル"
+              value={tipsTitle}
+              onChange={changeInputTitle}
+            />
+          </div>
+          <div className="new-post-desc">
+            <textarea
+              cols={50}
+              rows={10}
+              placeholder="説明文"
+              value={tipsDesc}
+              onChange={changeInputDesc}
+            />
+          </div>
         </div>
       </div>
       <CommonButton
