@@ -1,5 +1,5 @@
 import { ref } from "firebase/storage";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import CommonButton from "../../components/common/atoms/CommonButton";
 import HeaderMenu from "../../components/common/molecules/HeaderMenu";
@@ -22,13 +22,13 @@ const TipsDetail = () => {
       <div className="tips-detail-inner">
         {/* テキストをファイルで管理して呼びだすようにする */}
         <HeaderMenu headerTitle="Tips詳細" />
-        <div className="tips">
-          <p className="tips-title">{title}</p>
-          <div className="tips-code">
+        <div className="detail">
+          <p className="detail-title">{title}</p>
+          <div className="detail-code">
             <img src={thumbnail} alt="" />
           </div>
 
-          <p className="tips-desc">{desc}</p>
+          <p className="detail-desc">{desc}</p>
         </div>
       </div>
       {currentUserId === userId && (
