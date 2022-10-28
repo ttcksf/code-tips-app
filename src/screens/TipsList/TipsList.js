@@ -32,11 +32,9 @@ const TipsList = () => {
     dispatch(fetchTips());
   }, []);
 
-
-
   return (
     <>
-      <div className="inner">
+      <div className="tips-list-inner">
         <HeaderMenu headerTitle="Tips一覧" />
         <div className="tips-list">
           {tips.map((tip) => {

@@ -78,7 +78,7 @@ const NewPost = () => {
 
   return (
     <>
-      <div className="inner">
+      <div className="tips-new-inner">
         <HeaderMenu headerTitle="Tips作成" />
         <div className="new-post-img">
           <input

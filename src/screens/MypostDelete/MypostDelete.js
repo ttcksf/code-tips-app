@@ -1,3 +1,4 @@
+import "./MyPostDelete.css";
 import { deleteDoc, doc } from "firebase/firestore";
 import { deleteObject, ref } from "firebase/storage";
 import React from "react";
@@ -22,7 +23,7 @@ const MyPostDelete = () => {
 
   return (
     <>
-      <div className="inner">
+      <div className="post-delete-inner">
         <HeaderMenu headerTitle="Tips削除" />
         <div className="my-post-delete">
           <p>

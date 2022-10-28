@@ -1,14 +1,11 @@
-.tips-detail-inner {
+.post-delete-inner {
   width: 100%;
   max-width: 400px;
   padding: 20px 24px 80px;
   margin: 0 auto;
 }
 @media screen and (min-width: 430px) {
-  .tips-detail-inner {
+  .post-delete-inner {
     max-width: 1400px;
   }
-}
-.mypost-delete p {
-  font-size: 24px;
 }
