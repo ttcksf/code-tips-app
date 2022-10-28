@@ -12,8 +12,37 @@
 
 .tips-list {
 }
+@media screen and (min-width: 430px) {
+  .tips-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
 .tips {
   margin-top: 40px;
+}
+@media screen and (min-width: 430px) {
+  .tips {
+    width: calc(50% - 16px * 1 / 2);
+    margin-right: 16px;
+  }
+  .tips:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .tips {
+    width: calc(25% - 16px * 3 / 4);
+    margin-right: 16px;
+  }
+  .tips:nth-child(2n) {
+    margin-right: 16px;
+  }
+  .tips:nth-child(4n) {
+    margin-right: 0;
+  }
 }
 .tips p {
   margin: 0;
