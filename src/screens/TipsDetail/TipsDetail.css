@@ -9,6 +9,43 @@
     max-width: 1400px;
   }
 }
-.mypost-delete p {
-  font-size: 24px;
+
+.detail-title {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+@media screen and (min-width: 430px) {
+  .detail-title {
+    font-size: 24px;
+    font-weight: 500;
+  }
+}
+@media screen and (min-width: 769px) {
+  .detail-title {
+    font-size: 32px;
+  }
+}
+
+.detail-code {
+  margin-bottom: 16px;
+}
+
+.detail-code img {
+  width: 100%;
+}
+
+.detail-desc {
+  font-size: 16px;
+  color: var(--lightGray);
+}
+@media screen and (min-width: 430px) {
+  .detail-desc {
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 769px) {
+  .detail-desc {
+    font-size: 24px;
+  }
 }
