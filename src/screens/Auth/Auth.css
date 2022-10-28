@@ -29,6 +29,7 @@
   height: 45px;
   border-radius: 6px;
   border: 1px solid var(--lightGray);
+  padding: 10px;
 }
 .input-check {
   margin-top: 5px;
