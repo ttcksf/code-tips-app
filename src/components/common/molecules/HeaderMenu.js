@@ -6,7 +6,7 @@ import { menuOpen, menuClose } from "../../../features/menuSlice";
 import ModalMenu from "./ModalMenu";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const HeaderMenu = ({ headerTitle }) => {
   const dispatch = useDispatch();
@@ -48,6 +48,23 @@ const HeaderMenu = ({ headerTitle }) => {
         <div className="modal-menu-img" onClick={menuOpenHandler}>
           <img src={MenuImg} alt="menu" />
         </div>
+      </header>
+      <header className="nav-menu-header">
+        <p>{headerTitle}</p>
+        <ul>
+          <Link to="/tipsList" onClick={menuCloseHandler}>
+            <li>Tips一覧</li>
+          </Link>
+          <Link to="/newPost" onClick={menuCloseHandler}>
+            <li>Tips作成</li>
+          </Link>
+          <a>
+            <li onClick={logOut}>ログアウト</li>
+          </a>
+          <Link to="/accountDelete" onClick={menuCloseHandler}>
+            <li>退会</li>
+          </Link>
+        </ul>
       </header>
     </>
   );

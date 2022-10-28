@@ -50,10 +50,9 @@ const AccountDelete = () => {
     }
   }, []);
 
-
   return (
     <>
-      <div className="inner" style={style.inner}>
+      <div className="account-delete-inner" style={style.inner}>
         <HeaderMenu headerTitle="退会" />
         <div className="account-delete">
           <p
