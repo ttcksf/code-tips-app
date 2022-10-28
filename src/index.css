@@ -40,12 +40,12 @@ code {
   padding: 20px 24px 80px;
   margin: 0 auto;
 }
-@media screen and (min-width: 430px){
-  .inner{
+@media screen and (min-width: 430px) {
+  .inner {
+    width: 100%;
     max-width: 400px;
   }
 }
 
-@media screen and (min-width: 1025px){
-  
+@media screen and (min-width: 1025px) {
 }
