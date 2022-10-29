@@ -31,6 +31,9 @@ a {
   text-decoration: none;
   color: var(--black);
 }
+button {
+  cursor: pointer;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

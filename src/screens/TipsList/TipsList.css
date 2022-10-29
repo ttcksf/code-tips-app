@@ -15,13 +15,13 @@
 @media screen and (min-width: 430px) {
   .tips-list {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
   }
 }
 .tips {
   margin-top: 40px;
+  cursor: pointer;
 }
 @media screen and (min-width: 430px) {
   .tips {
@@ -76,6 +76,7 @@
   white-space: nowrap;
   font-size: 14px;
   font-weight: 400;
+  color: var(--lightGray);
 }
 .tips-desc span {
 }

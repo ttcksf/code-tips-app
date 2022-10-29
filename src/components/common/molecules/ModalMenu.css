@@ -18,7 +18,10 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 24px;
+  height: 54px;
+  position: sticky;
+  top: 0;
+  background: #fff;
 }
 
 @media screen and (min-width: 430px) {
