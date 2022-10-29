@@ -1,3 +1,4 @@
+import NoDataImg from "../../images/nodata.jpg";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -48,9 +49,16 @@ const TipsList = () => {
                 }
                 key={tip.tipsId}
               >
-                <div className="tips-code">
-                  <img src={tip.thumbnail} alt="" />
-                </div>
+                {tip.thumbnail ? (
+                  <div className="tips-code">
+                    <img src={tip.thumbnail} alt="" />
+                  </div>
+                ) : (
+                  <div className="tips-code">
+                    <img src={NoDataImg} alt="" />
+                  </div>
+                )}
+
                 {currentUserId === tip.userId ? (
                   <p className="tips-auther myid">
                     <span>あなた</span>の投稿
