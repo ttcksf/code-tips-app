@@ -7,6 +7,7 @@ import HeaderMenu from "../../components/common/molecules/HeaderMenu";
 import "./TipsList.css";
 import { fetchTips } from "../../features/tipsSlice";
 import { auth } from "../../firebase";
+import Loading from "../../components/common/molecules/Loading";
 
 const TipsList = () => {
   const navigate = useNavigate();
@@ -35,55 +36,63 @@ const TipsList = () => {
 
   return (
     <>
-      <div className="tips-list-inner">
-        <HeaderMenu headerTitle="Tips一覧" />
-        <div className="tips-list">
-          {tips.map((tip) => {
-            return (
-              <div
-                className="tips"
-                onClick={() =>
-                  navigate(`/tips/${tip.tipsId}`, {
-                    state: { tip, currentUserId },
-                  })
-                }
-                key={tip.tipsId}
-              >
-                {tip.thumbnail ? (
-                  <div className="tips-code">
-                    <img src={tip.thumbnail} alt="" />
+      {NoDataImg ? (
+        <>
+          <div className="tips-list-inner">
+            <HeaderMenu headerTitle="Tips一覧" />
+            <div className="tips-list">
+              {tips.map((tip) => {
+                return (
+                  <div
+                    className="tips"
+                    onClick={() =>
+                      navigate(`/tips/${tip.tipsId}`, {
+                        state: { tip, currentUserId },
+                      })
+                    }
+                    key={tip.tipsId}
+                  >
+                    {tip.thumbnail ? (
+                      <div className="tips-code">
+                        <img src={tip.thumbnail} alt="" />
+                      </div>
+                    ) : (
+                      <div className="tips-code">
+                        <img src={NoDataImg} alt="" />
+                      </div>
+                    )}
+
+                    {currentUserId === tip.userId ? (
+                      <p className="tips-auther myid">
+                        <span>あなた</span>の投稿
+                      </p>
+                    ) : (
+                      <p className="tips-auther">
+                        <span>ID : {tip.userId} さん</span>の投稿
+                      </p>
+                    )}
+
+                    <p className="tips-title">{tip.title}</p>
+
+                    <p className="tips-desc">{tip.desc}</p>
                   </div>
-                ) : (
-                  <div className="tips-code">
-                    <img src={NoDataImg} alt="" />
-                  </div>
-                )}
+                );
+              })}
+            </div>
+          </div>
 
-                {currentUserId === tip.userId ? (
-                  <p className="tips-auther myid">
-                    <span>あなた</span>の投稿
-                  </p>
-                ) : (
-                  <p className="tips-auther">
-                    <span>ID : {tip.userId} さん</span>の投稿
-                  </p>
-                )}
-
-                <p className="tips-title">{tip.title}</p>
-
-                <p className="tips-desc">{tip.desc}</p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      <CommonButton
-        commonBtnText="新規投稿"
-        isPostingButton={isPostingButton}
-        CommonButtonLink="newpost"
-        onClick={() => linkToNewPost()}
-      />
+          <CommonButton
+            commonBtnText="新規投稿"
+            isPostingButton={isPostingButton}
+            CommonButtonLink="newpost"
+            onClick={() => linkToNewPost()}
+          />
+        </>
+      ) : (
+        <>
+          <Loading />
+        </>
+      )}
     </>
   );
 };
